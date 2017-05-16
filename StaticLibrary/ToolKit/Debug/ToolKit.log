@@ -1,0 +1,5 @@
+﻿  tkVector.cpp
+  tkMatrix.cpp
+  Generating Code...
+c:\users\mitchell\desktop\c++\staticlibrary\toolkit\tkmatrix.cpp(21): warning C4172: returning address of local variable or temporary
+  ToolKit.vcxproj -> C:\Users\Mitchell\Desktop\c++\StaticLibrary\Debug\ToolKit.lib
