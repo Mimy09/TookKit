@@ -5,15 +5,16 @@
 namespace tk {
 	class IO {
 	public:
-		static enum Mode { ReadOnly, ReadWrite, Empty };
+		
+		enum Mode { ReadOnlyBinary, ReadWriteBinary, ReadWrite, ReadOnly, Empty };
 
 		IO(String Path) : m_path(Path) {}
-		IO() { m_path = nullptr; }
+		IO() { m_path = ""; }
 		~IO() { if (m_file != NULL) fclose(m_file); }
 		void SetPath(String Path) { m_path = Path; }
 
 		void Open(Mode mode) {
-			if (m_path.data == nullptr) TK_EXCEPTION("Path is null");
+			if (m_path.data == "") TK_EXCEPTION("Path is null");
 
 			switch (mode) {
 			case tk::IO::ReadOnly:
@@ -26,6 +27,17 @@ namespace tk {
 					m_file = fopen(m_path.data, "wb");
 				} fclose(m_file);
 				m_file = fopen(m_path.data, "r+b");
+				break;
+			case tk::IO::ReadOnlyBinary:
+				m_file = fopen(m_path.data, "r");
+				break;
+			case tk::IO::ReadWriteBinary:
+				m_file = fopen(m_path.data, "r");
+				if (m_file == NULL) {
+					fclose(m_file);
+					m_file = fopen(m_path.data, "w");
+				} fclose(m_file);
+				m_file = fopen(m_path.data, "r+");
 				break;
 			case tk::IO::Empty:
 				m_file = fopen(m_path.data, "wb");
@@ -59,25 +71,25 @@ namespace tk {
 		}
 		template<typename T> void Read(T& data, int Offset) {
 			if (fseek(m_file, Offset, SEEK_SET) != 0) TK_EXCEPTION("Seek error");
-			if (fread((char*)&data, sizeof(T), 1, m_file) != 1) TK_EXCEPTION("Raed error");
+			if (fread((char*)&data, sizeof(T), 1, m_file) != 1) TK_EXCEPTION("Read error");
 		}
 		template<> void Read<String>(String& data, int Offset) {
 			if (fseek(m_file, Offset, SEEK_SET) != 0) TK_EXCEPTION("Seek error");
 			int dataSize = 0;
-			if (fread((char*)&dataSize, sizeof(dataSize), 1, m_file) != 1) TK_EXCEPTION("Raed error");
+			if (fread((char*)&dataSize, sizeof(dataSize), 1, m_file) != 1) TK_EXCEPTION("Read error");
 			if (dataSize == 0) {
 				data = "";
 			}
 			else {
 				char* buffer = new char[dataSize + 1];
-				if (fread(buffer, dataSize, 1, m_file) != 1) TK_EXCEPTION("Raed error");
+				if (fread(buffer, dataSize, 1, m_file) != 1) TK_EXCEPTION("Read error");
 				buffer[dataSize] = 0;
 				data = buffer;
 				delete[] buffer;
 			}
 		}
 		int Size() {
-			if (m_path.data == nullptr) TK_EXCEPTION("Path is null");
+			if (m_path.data == "") TK_EXCEPTION("Path is null");
 			m_file = fopen(m_path.data, "rb");
 			if (m_file == NULL) TK_EXCEPTION("Open error");
 			int cur = ftell(m_file);
