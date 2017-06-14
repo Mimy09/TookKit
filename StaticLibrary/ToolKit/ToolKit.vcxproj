@@ -130,18 +130,20 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Properties.h" />
     <ClInclude Include="tkException.h" />
     <ClInclude Include="tkIO.h" />
-    <ClInclude Include="tkMatrix.h" />
+    <ClInclude Include="tkLinkList.h" />
     <ClInclude Include="tkObjectPool.h" />
     <ClInclude Include="tkString.h" />
-    <ClInclude Include="tkVector.h" />
+    <ClInclude Include="tkTimer.h" />
+    <ClInclude Include="tkWindow.h" />
+    <ClInclude Include="tkWinObjects.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="tkMatrix.cpp" />
     <ClCompile Include="tkString.cpp" />
-    <ClCompile Include="tkVector.cpp" />
+    <ClCompile Include="tkTimer.cpp" />
+    <ClCompile Include="tkWindow.cpp" />
+    <ClCompile Include="tkWinObject.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

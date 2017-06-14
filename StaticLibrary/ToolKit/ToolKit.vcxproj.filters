@@ -16,8 +16,8 @@
     <Filter Include="Header Files\Math">
       <UniqueIdentifier>{b03c7e62-2e9b-497b-bde9-74d24feb5fb5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Math\Src">
-      <UniqueIdentifier>{35c2847f-54cf-4c9e-8050-f81ec0a4d448}</UniqueIdentifier>
+    <Filter Include="Header Files\windows">
+      <UniqueIdentifier>{56e200a6-f7f0-4d81-b2db-fca5ddcbf7e2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -36,25 +36,31 @@
     <ClInclude Include="tkObjectPool.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="tkVector.h">
-      <Filter>Header Files\Math</Filter>
+    <ClInclude Include="tkWinObjects.h">
+      <Filter>Header Files\windows</Filter>
     </ClInclude>
-    <ClInclude Include="tkMatrix.h">
-      <Filter>Header Files\Math</Filter>
+    <ClInclude Include="tkWindow.h">
+      <Filter>Header Files\windows</Filter>
     </ClInclude>
-    <ClInclude Include="Properties.h">
-      <Filter>Header Files\Math</Filter>
+    <ClInclude Include="tkLinkList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tkTimer.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="tkString.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tkVector.cpp">
-      <Filter>Header Files\Math\Src</Filter>
+    <ClCompile Include="tkWinObject.cpp">
+      <Filter>Header Files\windows</Filter>
     </ClCompile>
-    <ClCompile Include="tkMatrix.cpp">
-      <Filter>Header Files\Math\Src</Filter>
+    <ClCompile Include="tkWindow.cpp">
+      <Filter>Header Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="tkTimer.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
