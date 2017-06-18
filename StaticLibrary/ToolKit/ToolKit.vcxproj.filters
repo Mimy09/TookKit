@@ -48,6 +48,12 @@
     <ClInclude Include="tkTimer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="tkTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tkHashMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="tkString.cpp">
@@ -60,7 +66,7 @@
       <Filter>Header Files\windows</Filter>
     </ClCompile>
     <ClCompile Include="tkTimer.cpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

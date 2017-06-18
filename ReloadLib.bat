@@ -1,7 +1,7 @@
 @echo Off
 
 SET toolKit_include="StaticLibrary\ToolKit\*.h"
-SET toolKit_lib="StaticLibrary\Debug\*.lib"
+SET toolKit_lib="StaticLibrary\bin\*.lib"
 SET toolKit_include_dest="Library\ToolKit\Include"
 SET toolKit_lib_dest="Library\ToolKit\Libs"
 

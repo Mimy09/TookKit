@@ -5,11 +5,15 @@ namespace tk {
 	private:
 		struct Node { T data; Node * next; };
 		Node* m_head, *m_tail;
+		int m_length;
 	public:
-		LinkList() : m_head(nullptr), m_tail(nullptr){}
+		LinkList() : m_head(nullptr), m_tail(nullptr), m_length(0){}
 		~LinkList(){}
 
+		inline int Length() { return m_length; }
+
 		void InsertEnd(T Val) {
+			m_length++;
 			Node* temp = new Node;
 			temp->data = Val;
 			temp->next = nullptr;
@@ -24,6 +28,7 @@ namespace tk {
 		}
 
 		void InsertAfter(Node* N, T Val) {
+			m_length++;
 			Node* temp = new Node;
 			temp->data = Val;
 			temp->next = nullptr;
@@ -36,6 +41,7 @@ namespace tk {
 			}
 		}
 		void InsertPos(int Pos, T Val) {
+			m_length++;
 			Node* temp = new Node;
 			temp->data = Val;
 			temp->next = nullptr;
@@ -51,6 +57,7 @@ namespace tk {
 		}
 
 		void InsertStart(T Val) {
+			m_length++;
 			Node* temp = new Node;
 			temp->data = Val;
 			temp->next = m_head;
@@ -58,15 +65,17 @@ namespace tk {
 		}
 
 		void DeletaFirst() {
+			m_length--;
 			Node* temp = new Node;
 			temp = m_head;
 			m_head = m_head->next;
 			delete temp;
 		}
 		void DeletePos(int Pos) {
+			m_length--;
 			Node* cur = new Node, *pre = new Node;
 			cur = m_head;
-			for (int i = 0, i < Pos; i++){
+			for (int i = 0; i < Pos; i++) {
 				pre = cur;
 				cur = cur->next;
 			}
@@ -74,6 +83,7 @@ namespace tk {
 			delete cur;
 		}
 		void DeleteEnd() {
+			m_length--;
 			Node* cur = new Node, *pre = new Node;
 			cur = m_head;
 			while (cur->next != nullptr) {
@@ -88,7 +98,25 @@ namespace tk {
 		T Index(int index) {
 			Node* cur = new Node, *pre = new Node;
 			cur = m_head;
-			for (int i = 0, i < index; i++) {
+			for (int i = 0; i < index; i++) {
+				pre = cur;
+				cur = cur->next;
+			} return cur->data;
+		}
+
+		T Find(int index) {
+			Node* cur = new Node, *pre = new Node;
+			cur = m_head;
+			for (int i = 0; i < index; i++) {
+				pre = cur;
+				cur = cur->next;
+			} return cur->data;
+		}
+
+		T& operator[](int index) {
+			Node* cur = new Node, *pre = new Node;
+			cur = m_head;
+			for (int i = 0; i < index; i++) {
 				pre = cur;
 				cur = cur->next;
 			} return cur->data;

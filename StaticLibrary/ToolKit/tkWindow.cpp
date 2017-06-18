@@ -132,14 +132,14 @@ namespace tk {
 
 			m_timer.start();
 			prevTime = 0;
-			m_version = "";
+			m_version = "VERSION 0.5";
 
-			m_versionFile.SetPath("../../VERSION.txt");
+			//m_versionFile.SetPath("../../VERSION.txt");
 			//m_versionFile.Open(tk::IO::ReadWrite);
 			//m_versionFile.Write("VERSION=0.4");
-			m_versionFile.Open(tk::IO::ReadOnly);
-			m_versionFile.Read(m_version, 0);
-			m_versionFile.Close();
+			//m_versionFile.Open(tk::IO::ReadOnly);
+			//m_versionFile.Read(m_version, 0);
+			//m_versionFile.Close();
 
 		}
 		void Window::Show() {

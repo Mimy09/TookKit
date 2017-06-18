@@ -1,0 +1,14 @@
+﻿  tkWindow.cpp
+d:\programfiles\programming\_git\toolkit\staticlibrary\toolkit\tkwindow.cpp(11): warning C4312: 'type cast': conversion from 'LONG' to 'tk::win::Window *' of greater size
+d:\programfiles\programming\_git\toolkit\staticlibrary\toolkit\tkwindow.cpp(17): warning C4311: 'type cast': pointer truncation from 'LPVOID' to 'LONG'
+d:\programfiles\programming\_git\toolkit\staticlibrary\toolkit\tkwindow.cpp(17): warning C4302: 'type cast': truncation from 'LPVOID' to 'LONG'
+d:\programfiles\programming\_git\toolkit\staticlibrary\toolkit\tkwindow.cpp(66): warning C4244: 'argument': conversion from 'WPARAM' to 'UINT', possible loss of data
+d:\programfiles\programming\_git\toolkit\staticlibrary\toolkit\tkwindow.cpp(69): warning C4244: 'argument': conversion from 'WPARAM' to 'UINT', possible loss of data
+d:\programfiles\programming\_git\toolkit\staticlibrary\toolkit\tkwindow.cpp(70): warning C4244: 'argument': conversion from 'WPARAM' to 'UINT', possible loss of data
+d:\programfiles\programming\_git\toolkit\staticlibrary\toolkit\tkwindow.cpp(71): warning C4244: 'argument': conversion from 'WPARAM' to 'UINT', possible loss of data
+d:\programfiles\programming\_git\toolkit\staticlibrary\toolkit\tkwindow.cpp(72): warning C4244: 'argument': conversion from 'WPARAM' to 'UINT', possible loss of data
+d:\programfiles\programming\_git\toolkit\staticlibrary\toolkit\tkwindow.cpp(73): warning C4244: 'argument': conversion from 'WPARAM' to 'UINT', possible loss of data
+d:\programfiles\programming\_git\toolkit\staticlibrary\toolkit\tkwindow.cpp(86): warning C4302: 'type cast': truncation from 'LPSTR' to 'WORD'
+d:\programfiles\programming\_git\toolkit\staticlibrary\toolkit\tkwindow.cpp(90): warning C4302: 'type cast': truncation from 'LPSTR' to 'WORD'
+d:\programfiles\programming\_git\toolkit\staticlibrary\toolkit\tkwindow.cpp(197): warning C4008: 'WinMain': 'inline' attribute ignored
+  ToolKit.vcxproj -> D:\ProgramFiles\Programming\_GIT\ToolKit\StaticLibrary\bin\ToolKit_x64_DEBUG.lib

@@ -8,7 +8,7 @@
 #include <Windows.h>
 #include "tkException.h"
 #include "tkObjectPool.h"
-#include "tkIO.h"
+//#include "tkIO.h"
 #include "tkWinObjects.h"
 #include "tkTimer.h"
 
@@ -190,7 +190,7 @@ namespace tk {
 			WNDCLASSEX m_wc;
 			COPYDATASTRUCT pcds;
 
-			tk::IO m_versionFile;
+			//tk::IO m_versionFile;
 
 			double prevTime = 0;
 		};
