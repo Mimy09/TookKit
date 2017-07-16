@@ -1,5 +1,0 @@
-﻿  tkWindow.cpp
-d:\programfiles\programming\_git\toolkit\staticlibrary\toolkit\tkwindow.cpp(86): warning C4302: 'type cast': truncation from 'LPSTR' to 'WORD'
-d:\programfiles\programming\_git\toolkit\staticlibrary\toolkit\tkwindow.cpp(90): warning C4302: 'type cast': truncation from 'LPSTR' to 'WORD'
-d:\programfiles\programming\_git\toolkit\staticlibrary\toolkit\tkwindow.cpp(197): warning C4008: 'WinMain': 'inline' attribute ignored
-  ToolKit.vcxproj -> D:\ProgramFiles\Programming\_GIT\ToolKit\StaticLibrary\bin\ToolKit_Win32_DEBUG.lib
