@@ -11,6 +11,9 @@
 #define BPD_BEGIN namespace bpd {
 #define BPD_END }
 
+#define BPD_NULL 0
+#define BPD_NULL_P nullptr
+
 #define BPD_SAFE_ARRAY_DELETE(pObj) \
 { if(pObj != nullptr) {delete[] pObj; pObj = nullptr;}}
 #define BPD_SAFE_DELETE(pObj) \

@@ -11,14 +11,10 @@ public:
 		if(m_timer.SetFPS(5)){
 			printf("FPS: %i\n", m_timer.GetFPS());
 		}
-
 	}
-
-	
 
 	virtual void OnPaint(HDC hdc){
 		bpd::WinText(hdc, "Hello World!", RECT{ 10, 10, 100, 100 });
 		m_timer.calcFPS();
 	}
-
 };

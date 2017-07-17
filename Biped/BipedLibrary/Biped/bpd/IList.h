@@ -1,5 +1,5 @@
 // ################################################################## //
-// ##							EXEPTIONS						   ## //
+// ##							IList							   ## //
 // ##															   ## //
 // ##			By Mitchell Jenkins - 2017 Jul 15 - AIE			   ## //
 // ################################################################## //
@@ -50,6 +50,7 @@ private:
 	const_ptr p;
 	size_type size;
 };
+typedef IList<char> const_string;
 
 template <class _Type> inline
 constexpr const _Type *begin(IList<_Type> _Ilist){
