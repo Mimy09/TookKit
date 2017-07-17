@@ -97,10 +97,19 @@
     <ClInclude Include="Biped\bpd\dxWindow.h">
       <Filter>Biped\dx11\Header</Filter>
     </ClInclude>
+    <ClInclude Include="Biped\bpd\dxd3d.h">
+      <Filter>Biped\dx11\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Biped\bpd\dxModel.h">
+      <Filter>Biped\dx11\Header</Filter>
+    </ClInclude>
     <ClInclude Include="Biped\bpd\Core\dxdef.h">
       <Filter>Biped\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Biped\bpd\dxd3d.h">
+    <ClInclude Include="Biped\bpd\dxColorShader.h">
+      <Filter>Biped\dx11\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Biped\bpd\dxCamera.h">
       <Filter>Biped\dx11\Header</Filter>
     </ClInclude>
   </ItemGroup>
@@ -150,5 +159,22 @@
     <ClCompile Include="dxd3d.cpp">
       <Filter>Biped\dx11\Src</Filter>
     </ClCompile>
+    <ClCompile Include="dxModel.cpp">
+      <Filter>Biped\dx11\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="dxColorShader.cpp">
+      <Filter>Biped\dx11\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="dxCamera.cpp">
+      <Filter>Biped\dx11\Src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="color.vs">
+      <Filter>Biped\dx11</Filter>
+    </None>
+    <None Include="color.ps">
+      <Filter>Biped\dx11</Filter>
+    </None>
   </ItemGroup>
 </Project>

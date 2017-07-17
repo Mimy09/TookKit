@@ -164,9 +164,12 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="dxCamera.cpp" />
+    <ClCompile Include="dxColorShader.cpp" />
     <ClCompile Include="dxd3d.cpp" />
     <ClCompile Include="dxGraphics.cpp" />
     <ClCompile Include="dxInput.cpp" />
+    <ClCompile Include="dxModel.cpp" />
     <ClCompile Include="dxSystem.cpp" />
     <ClCompile Include="Exception.cpp" />
     <ClCompile Include="IO.cpp" />
@@ -182,9 +185,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Biped\bpd\Core\dxdef.h" />
+    <ClInclude Include="Biped\bpd\dxCamera.h" />
     <ClInclude Include="Biped\bpd\dxd3d.h" />
     <ClInclude Include="Biped\bpd\dxGraphics.h" />
     <ClInclude Include="Biped\bpd\dxInput.h" />
+    <ClInclude Include="Biped\bpd\dxModel.h" />
     <ClInclude Include="Biped\bpd\dxSystem.h" />
     <ClInclude Include="Biped\bpd\dxWindow.h" />
     <ClInclude Include="Biped\bpd\Exception.h" />
@@ -201,6 +206,11 @@
     <ClInclude Include="Biped\bpd\bpdWindow.h" />
     <ClInclude Include="Biped\bpd\bpdWinObjects.h" />
     <ClInclude Include="Biped\bpd\Tree.h" />
+    <ClInclude Include="Biped\bpd\dxColorShader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="color.ps" />
+    <None Include="color.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

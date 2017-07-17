@@ -1,6 +1,6 @@
 #ifndef _DXDEF_H_
 #define _DXDEF_H_
-#include "Core\bpddef.h"
+#include "bpddef.h"
 
 BPD_BEGIN
 static bool fullScreen = false;
