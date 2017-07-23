@@ -28,14 +28,29 @@ LRESULT BPD_WinProc() {
 	}
 	case WM_PAINT:
 	{
-		PAINTSTRUCT ps;
-		HDC hdc = BeginPaint(hwnd, &ps);
-		win->OnPaint(win->memDC);
-		win->GSMDraw(win->memDC);
-		BitBlt(hdc, 0, 0, win->screenWidth, win->screenHeight, win->memDC, 0, 0, SRCCOPY);
-		EndPaint(hwnd, &ps);
+		if (!BPD_DIRECT2D) {
+			PAINTSTRUCT ps;
+			HDC hdc = BeginPaint(hwnd, &ps);
+			win->OnPaint(win->memDC);
+			win->GSMDraw(win->memDC);
+			BitBlt(hdc, 0, 0, win->screenWidth, win->screenHeight, win->memDC, 0, 0, SRCCOPY);
+			EndPaint(hwnd, &ps);
+		} else {
+			win->OnRender();
+			ValidateRect(hwnd, NULL);
+		}
 		break;
 	}
+	case WM_SIZE:
+	{
+		UINT width = LOWORD(lParam);
+		UINT height = HIWORD(lParam);
+		win->OnResize(width, height);
+	} break;
+	case WM_DISPLAYCHANGE:
+	{
+		InvalidateRect(hwnd, NULL, FALSE);
+	} break;
 	case WM_ERASEBKGND: return 1;
 	case WM_DESTROY: win->OnDestroy(); break;
 	case WM_CLOSE: win->OnClose(); break;
@@ -66,7 +81,9 @@ LRESULT BPD_WinProc() {
 	case WM_MBUTTONDOWN: win->OnMouseDown(LOWORD(lParam), HIWORD(lParam), wParam); break;
 	case WM_LBUTTONDBLCLK: win->OnMouseDClick(LOWORD(lParam), HIWORD(lParam), wParam); break;
 	case WM_MOUSEMOVE: win->OnMouseMove(LOWORD(lParam), HIWORD(lParam), wParam); break;
-	case WM_KEYDOWN: win->OnKeyDown(wParam); break;
+	case WM_KEYDOWN:
+		if (wParam == VK_ESCAPE) PostQuitMessage(0);
+		win->OnKeyDown(wParam); break;
 	case WM_KEYUP: win->OnKeyUp(wParam); break;
 	case WM_MOVE: win->OnWindowMove(); break;
 	case WM_EXITSIZEMOVE: win->UpdateTime(); win->OnWindowStopMoving(); break;
@@ -76,6 +93,12 @@ LRESULT BPD_WinProc() {
 }
 
 void Window::Create(const_string className, const_string winTitle, RECT winPos, bool console) {
+	HRESULT result;
+	Initialize();
+	result = CreateDeviceIndependentResources();
+
+	if (!SUCCEEDED(result)) BPD_EXCEPTION("Failed to Create Device Independent Resources");
+
 	ZeroMemory(&m_wc, sizeof(WNDCLASSEX));
 	ZeroMemory(&m_msg, sizeof(MSG));
 	HINSTANCE hInstance = GetModuleHandle(NULL);
@@ -101,11 +124,12 @@ void Window::Create(const_string className, const_string winTitle, RECT winPos, 
 		WS_EX_OVERLAPPEDWINDOW,
 		className.data(),
 		winTitle.data(),
-		WS_OVERLAPPEDWINDOW ^ WS_THICKFRAME ^ WS_MAXIMIZEBOX | WS_CLIPCHILDREN,
-		rectPos.left == 0 ? CW_USEDEFAULT : rectPos.left,
-		rectPos.top == 0 ? CW_USEDEFAULT : rectPos.top,
-		winPos.right - winPos.left,
-		winPos.bottom - winPos.top,
+		BPD_DIRECT2D_FALLSCREEN_WINDOWED == true ?
+		WS_POPUP : WS_OVERLAPPEDWINDOW ^ WS_THICKFRAME ^ WS_MAXIMIZEBOX | WS_CLIPCHILDREN,
+		BPD_DIRECT2D_FALLSCREEN_WINDOWED == true ? 0 : rectPos.left == 0 ? CW_USEDEFAULT : rectPos.left,
+		BPD_DIRECT2D_FALLSCREEN_WINDOWED == true ? 0 : rectPos.top == 0 ? CW_USEDEFAULT : rectPos.top,
+		BPD_DIRECT2D_FALLSCREEN_WINDOWED == true ? GetSystemMetrics(SM_CXSCREEN) : winPos.right - winPos.left,
+		BPD_DIRECT2D_FALLSCREEN_WINDOWED == true ? GetSystemMetrics(SM_CYSCREEN) : winPos.bottom - winPos.top,
 		NULL,
 		NULL,
 		this->m_wc.hInstance,
@@ -113,42 +137,46 @@ void Window::Create(const_string className, const_string winTitle, RECT winPos, 
 	);
 	if (!m_hwnd) BPD_EXCEPTION("WINDOW ERROR");
 
+	//SetWindowPos(
+	//	m_hwnd,
+	//	HWND_TOP,
+	//	0, 0, 0, 0,
+	//	SWP_NOSIZE | SWP_NOMOVE ^ SWP_DRAWFRAME
+	//);
+
 	/* ---- Start the console ---- */
-	if(console) {
+	if(BPD_CONSOLE) {
 		AllocConsole();
 		AttachConsole(GetCurrentProcessId());
-		freopen("CON", "w", stdout);
-
+		//freopen("CONIN$", "r", stdin);
+		//freopen("CONOUT$", "w", stdout);
+		//freopen("CONOUT$", "w", stderr);
+		freopen("CON", "w", stdin);
+		//RedirectIOToConsole();
 		printf(" ---- ToolKit Debug Console ----\n");
-		printf("TK VERSION: 0.7\n\n");
-	} else {
-		FreeConsole();
-	}
-	// Add brushes
-	//m_brushPool.AddObject(CreateSolidBrush(RGB(0, 0, 0)));
-	//m_brushPool.AddObject(CreateSolidBrush(RGB(255, 255, 255)));
-	//m_brushPool.AddObject(CreateSolidBrush(RGB(255, 0, 0)));
-	//m_brushPool.AddObject(CreateSolidBrush(RGB(0, 255, 0)));
-	//m_brushPool.AddObject(CreateSolidBrush(RGB(0, 0, 255)));
-	//m_brushPool.AddObject(CreateSolidBrush(RGB(255, 255, 0)));
-	//m_brushPool.AddObject(CreateSolidBrush(RGB(255, 0, 255)));
-	//m_brushPool.AddObject(CreateSolidBrush(RGB(0, 255, 255)));
-	//
-	//// Add pens
-	//m_penPool.AddObject(CreatePen(PS_SOLID, 1, RGB(0, 0, 0)));
-	//m_penPool.AddObject(CreatePen(PS_SOLID, 1, RGB(255, 255, 255)));
-	//m_penPool.AddObject(CreatePen(PS_SOLID, 1, RGB(255, 0, 0)));
-	//m_penPool.AddObject(CreatePen(PS_SOLID, 1, RGB(0, 255, 0)));
-	//m_penPool.AddObject(CreatePen(PS_SOLID, 1, RGB(0, 0, 255)));
-	//m_penPool.AddObject(CreatePen(PS_SOLID, 1, RGB(255, 255, 0)));
-	//m_penPool.AddObject(CreatePen(PS_SOLID, 1, RGB(255, 0, 255)));
-	//m_penPool.AddObject(CreatePen(PS_SOLID, 1, RGB(0, 255, 255)));
-
+		printf(" Window Class: %s \n", className.data());
+		printf(" Window Title: %s \n", winTitle.data());
+		printf(" Window Full screen: %i \n", BPD_DIRECT2D_FALLSCREEN_WINDOWED);
+	} else { FreeConsole(); }
 
 	m_timer.start();
 	prevTime = 0;
 	m_version = "VERSION 0.7";
 
+}
+void Window::Initialize() {
+	m_pDirect2dFactory = NULL;
+	m_pWriteFactory = NULL;
+	m_pRenderTarget = NULL;
+	m_pDebugTextFormat = NULL;
+}
+
+void Window::Release() {
+	SafeRelease(&m_pDirect2dFactory);
+	SafeRelease(&m_pRenderTarget);
+	SafeRelease(&m_pWriteFactory);
+	SafeRelease(&m_pDebugTextFormat);
+	OnDiscardDeviceResources();
 }
 void Window::Show() {
 	if (!m_hwnd) BPD_EXCEPTION("WINDOW HANDLE ERROR");
@@ -172,7 +200,6 @@ int Window::Run() {
 			double deltaTime = now - prevTime;
 					
 			Update(deltaTime);
-			GSMUpdate(deltaTime);
 
 			prevTime = now;
 			return 0;
@@ -183,7 +210,7 @@ void Window::Update(double deltaTime) {
 	BPD_UPDATE_RECT(m_hwnd, NULL);
 }
 void Window::RunWindow() {
-	while (Run() != BPD_MSG_EXIT) {}
+	while (Run() != BPD_MSG_EXIT) { }
 }
 void Window::MessageSend(bpd::String winClass, bpd::String winName, UINT msg, ULONG dataMsg) {
 	COPYDATASTRUCT cds;
@@ -199,6 +226,79 @@ void Window::MessageSend(bpd::String winClass, bpd::String winName, UINT msg, UL
 			(LPARAM)(LPVOID)&cds
 		);
 	} else { BPD_EXCEPTION("SEND MESSAGE ERROR"); }
+}
+HRESULT Window::CreateDeviceIndependentResources() {
+	HRESULT result = S_OK;
+	result = D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &m_pDirect2dFactory);
+	if(SUCCEEDED(result)) result = DWriteCreateFactory(
+		DWRITE_FACTORY_TYPE_SHARED,
+		__uuidof(m_pWriteFactory),
+		reinterpret_cast<IUnknown **>(&m_pWriteFactory)
+	);
+	return result;
+}
+
+HRESULT Window::CreateDeviceResources() {
+	HRESULT result = S_OK;
+
+	if (!m_pRenderTarget) {
+		RECT rc;
+		GetClientRect(m_hwnd, &rc);
+
+		D2D1_SIZE_U size = D2D1::SizeU(
+			rc.right - rc.left,
+			rc.bottom - rc.top
+		);
+
+		result = m_pDirect2dFactory->CreateHwndRenderTarget(
+			D2D1::RenderTargetProperties(),
+			D2D1::HwndRenderTargetProperties(m_hwnd, size),
+			&m_pRenderTarget
+		);
+
+		
+
+		if(SUCCEEDED(result)) result = m_pWriteFactory->CreateTextFormat(
+			L"Verdana",
+			NULL,
+			DWRITE_FONT_WEIGHT_NORMAL,
+			DWRITE_FONT_STYLE_NORMAL,
+			DWRITE_FONT_STRETCH_NORMAL,
+			12,
+			L"",
+			&m_pDebugTextFormat
+		);
+		if (SUCCEEDED(result)){
+			//m_pTextFormat->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER);
+			//m_pTextFormat->SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_CENTER);
+			OnDeviceResources(m_pRenderTarget);
+		}
+	}
+	return result;
+}
+
+void Window::DiscardDeviceResources() {
+	SafeRelease(&m_pRenderTarget);
+	OnDiscardDeviceResources();
+}
+HRESULT Window::OnRender() {
+	HRESULT result = S_OK;
+	result = CreateDeviceResources();
+	if (SUCCEEDED(result)) {
+		m_pRenderTarget->BeginDraw();
+		OnPaint(m_pRenderTarget);
+		result = m_pRenderTarget->EndDraw();
+	}
+	if (result == D2DERR_RECREATE_TARGET) {
+		result = S_OK;
+		DiscardDeviceResources();
+	} return result;
+}
+
+void Window::OnResize(UINT width, UINT height) {
+	if (m_pRenderTarget) {
+		m_pRenderTarget->Resize(D2D1::SizeU(width, height));
+	}
 }
 BPD_END
 

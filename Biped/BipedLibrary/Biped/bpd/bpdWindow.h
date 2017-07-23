@@ -8,6 +8,8 @@
 #pragma warning(disable: 4302)
 #pragma warning(disable: 4244)
 #define BPD_WINDEF
+#define WIN_DIRECT2D
+#define WIN_DIRECT2D_FALLSCREEN_WINDOWED
 #include "Core\bpdwindef.h"
 
 BPD_BEGIN
@@ -16,9 +18,9 @@ public:
 	//##################################//
 	// PUBLIC VARIABLES
 	//##################################//
-	//Stores the Bitmap of the whole screen to alow for double buffering 
+	//Stores the Bitmap of the whole screen to allow for double buffering 
 	HBITMAP hBitmat;
-	//The second HDC to swap to whilse double buffering 
+	//The second HDC to swap to whiles double buffering 
 	HDC memDC;
 	//Screen Width
 	int screenWidth = 0;
@@ -28,14 +30,18 @@ public:
 	//##################################//
 	// CONSTRUCTOR
 	//##################################//
-	// Defalt constructor
+	// Default constructor
 	Window(){}
-	// Defalt virtual deconstructor
+	// Default virtual deconstruction
 	virtual ~Window() = 0 {}
 
 	//##################################//
 	// PUBLIC FUNCTIONS
 	//##################################/
+
+	/* ---- Initialize ----
+	Initialize Direct2D */
+	void Initialize();
 
 	/* ---- Create ----
 	* #param className - Sets the class name of the WINCLASS 
@@ -43,20 +49,17 @@ public:
 	* #param winPos - Sets the position of the main HWND window */
 	virtual void Create(const_string className, const_string winTitle, RECT winPos, bool console = true);
 	
+	/* ---- Release ---- 
+	Do the safe releases for all the direct2d objects */
+	virtual void Release();
+
 	/* ---- Show ---- 
-	Sets the main HWND window to visable */
+	Sets the main HWND window to viable */
 	virtual void Show();
 			
 	/* ---- Hide ----
 	Set the main HWND window to hidden */
 	virtual void Hide();
-
-	/* ---- Run ---- 
-	Runs the main message loop
-	#return int (-1) - If WM_QUIT was posted
-	#return int (0) - If all messages have been dispatched
-	#return int (1) - If messages are being dispatched*/
-	virtual int Run();
 
 	/* ---- Update ----
 	virtual Update loop
@@ -85,15 +88,53 @@ public:
 	#return HWND - Returns the hwnd*/
 	inline HWND hwnd() { return m_hwnd; }
 
-	/* ---- UpdateTime ----
-	Updates the prevTime of the deltaTime */
-	inline void UpdateTime() { prevTime = m_timer.elapsed(); }
-
+	/* ---- MessageSend ----
+	Send a message*/
 	void MessageSend(bpd::String winClass, bpd::String winName, UINT msg, ULONG dataMsg);
+private:
+	//##################################//
+	// PRIVATE FUNCTIONS
+	//##################################//
+	/* ---- Run ----
+	Runs the main message loop
+	#return int (-1) - If WM_QUIT was posted
+	#return int (0) - If all messages have been dispatched
+	#return int (1) - If messages are being dispatched*/
+	virtual int Run();
+
+	//##################################//
+	// PRIVATE DIRECT2D FUNCTIONS
+	//##################################//
+	/* ---- CreateDeviceIndependentResources ---- */
+	HRESULT CreateDeviceIndependentResources();
+
+	/* ---- CreateDeviceResources ---- */
+	HRESULT CreateDeviceResources();
+
+	/* ---- DiscardDeviceResources ---- */
+	void DiscardDeviceResources();
+
+	/* ---- OnRender ---- */
+	HRESULT OnRender();
+
+	/* ---- OnResize ---- */
+	void OnResize( UINT width, UINT height );
+private:
+	//##################################//
+	// PRIVATE DIRECT2D VARIABLES
+	//##################################//
+	ID2D1Factory* m_pDirect2dFactory;
+	ID2D1HwndRenderTarget* m_pRenderTarget;
+	IDWriteFactory* m_pWriteFactory;
 protected:
+	IDWriteTextFormat* m_pDebugTextFormat;
 	//##################################//
 	// POLYMOPHIC FUNCTIONS
 	//##################################//
+
+	/* ---- UpdateTime ----
+	Updates the prevTime of the deltaTime */
+	inline void UpdateTime() { prevTime = m_timer.elapsed(); }
 
 	/* ---- OnCreate ----
 	Called when the WM_CREATE message is dispatched
@@ -117,10 +158,23 @@ protected:
 	Called when the WM_PAINT message is dispatched
 	#param hdc - The device context*/
 	virtual void OnPaint(HDC hdc) {}
-			
+
+	/* ---- OnPaint ----
+	Called when the WM_PAINT message is dispatched
+	#param hdc - The device context*/
+	virtual void OnPaint(ID2D1HwndRenderTarget*) {}
+	
+	/* ---- OnDeviceResources ----
+	Called when creating device resources*/
+	virtual void OnDeviceResources(ID2D1HwndRenderTarget*) {}
+
+	/* ---- OnDiscardDeviceResources ----
+	Called when discarding device resources*/
+	virtual void OnDiscardDeviceResources() {}
+
 	/* ---- OnMessage ----
-	Called when reciving a message
-	#param param - The messgage that was recieved*/
+	Called when receiving a message
+	#param param - The message that was received*/
 	virtual void OnMessage( UINT message, ULONG dataMsg) {}
 			
 	// ---- MOUSE EVENTS ----
@@ -151,12 +205,18 @@ protected:
 	virtual void GSMUpdate(double deltaTime) {}
 	virtual void GSMDraw(HDC hdc) {}
 
+	//##################################//
+	// PROTECTED VARIABLES
+	//##################################//
 	bpd::ObjectPool<HPEN> m_penPool;
 	bpd::ObjectPool<HBRUSH> m_brushPool;
 	bpd::String m_version;
 	bpd::Timer m_timer;
 
 private:
+	//##################################//
+	// PRIVATE VARIABLES
+	//##################################//
 	MSG m_msg;
 	RECT m_rc;
 	HWND m_hwnd;

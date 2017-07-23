@@ -1,3 +1,4 @@
+/*
 #include "Biped\bpd\LinkedList.h"
 BPD_BEGIN
 
@@ -165,6 +166,6 @@ BPD_TEMPLATE_CLASS void LinkedList<BPD_TEMPLATE_TYPE>::pop_back(){
 	pre->next = nullptr;
 	delete cur;
 }
-
 BPD_TEMPLATE_DEFAULT_P(LinkedList)
 BPD_END
+*/

@@ -6,7 +6,7 @@
 		#include "../HashTable.h"
 		#include "../IO.h"
 		#include "../LinkedList.h"
-		#include "../List.h"
+		#include "../IList.h"
 		#include "../ObjectPool.h"
 		#include "../String.h"
 		#include "../Timer.h"

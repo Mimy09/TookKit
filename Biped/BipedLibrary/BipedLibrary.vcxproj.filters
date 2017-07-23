@@ -29,15 +29,6 @@
     <Filter Include="Biped\Standard\Src">
       <UniqueIdentifier>{95b14e3c-bcde-46d4-944e-d8d59c41796a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Biped\dx11">
-      <UniqueIdentifier>{3d2c0597-03ff-4e0e-84d7-7f02e7a33e5d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Biped\dx11\Header">
-      <UniqueIdentifier>{6c78d54b-f518-4b0e-b224-c32390af39d5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Biped\dx11\Src">
-      <UniqueIdentifier>{b8e99b5c-570f-4f18-8c2d-372febafb9a7}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -85,32 +76,9 @@
     <ClInclude Include="Biped\bpd\IList.h">
       <Filter>Biped\Standard\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Biped\bpd\dxGraphics.h">
-      <Filter>Biped\dx11\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Biped\bpd\dxInput.h">
-      <Filter>Biped\dx11\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Biped\bpd\dxSystem.h">
-      <Filter>Biped\dx11\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Biped\bpd\dxWindow.h">
-      <Filter>Biped\dx11\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Biped\bpd\dxd3d.h">
-      <Filter>Biped\dx11\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Biped\bpd\dxModel.h">
-      <Filter>Biped\dx11\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Biped\bpd\Core\dxdef.h">
-      <Filter>Biped\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Biped\bpd\dxColorShader.h">
-      <Filter>Biped\dx11\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Biped\bpd\dxCamera.h">
-      <Filter>Biped\dx11\Header</Filter>
+    <ClInclude Include="Biped\bpd\dxRenderModel.h" />
+    <ClInclude Include="Biped\bpd\Maths.h">
+      <Filter>Biped\Standard\Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -147,34 +115,8 @@
     <ClCompile Include="IList.cpp">
       <Filter>Biped\Standard\Src</Filter>
     </ClCompile>
-    <ClCompile Include="dxSystem.cpp">
-      <Filter>Biped\dx11\Src</Filter>
+    <ClCompile Include="Maths.cpp">
+      <Filter>Biped\Standard\Src</Filter>
     </ClCompile>
-    <ClCompile Include="dxInput.cpp">
-      <Filter>Biped\dx11\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="dxGraphics.cpp">
-      <Filter>Biped\dx11\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="dxd3d.cpp">
-      <Filter>Biped\dx11\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="dxModel.cpp">
-      <Filter>Biped\dx11\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="dxColorShader.cpp">
-      <Filter>Biped\dx11\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="dxCamera.cpp">
-      <Filter>Biped\dx11\Src</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="color.vs">
-      <Filter>Biped\dx11</Filter>
-    </None>
-    <None Include="color.ps">
-      <Filter>Biped\dx11</Filter>
-    </None>
   </ItemGroup>
 </Project>
