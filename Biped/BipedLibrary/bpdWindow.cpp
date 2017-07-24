@@ -124,15 +124,13 @@ void Window::Create(const_string className, const_string winTitle, RECT winPos, 
 		WS_EX_OVERLAPPEDWINDOW,
 		className.data(),
 		winTitle.data(),
-		BPD_DIRECT2D_FALLSCREEN_WINDOWED == true ?
+		WIN_DIRECT2D_FULLSCREEN_WINDOWED == true ?
 		WS_POPUP : WS_OVERLAPPEDWINDOW ^ WS_THICKFRAME ^ WS_MAXIMIZEBOX | WS_CLIPCHILDREN,
-		BPD_DIRECT2D_FALLSCREEN_WINDOWED == true ? 0 : rectPos.left == 0 ? CW_USEDEFAULT : rectPos.left,
-		BPD_DIRECT2D_FALLSCREEN_WINDOWED == true ? 0 : rectPos.top == 0 ? CW_USEDEFAULT : rectPos.top,
-		BPD_DIRECT2D_FALLSCREEN_WINDOWED == true ? GetSystemMetrics(SM_CXSCREEN) : winPos.right - winPos.left,
-		BPD_DIRECT2D_FALLSCREEN_WINDOWED == true ? GetSystemMetrics(SM_CYSCREEN) : winPos.bottom - winPos.top,
-		NULL,
-		NULL,
-		this->m_wc.hInstance,
+		WIN_DIRECT2D_FULLSCREEN_WINDOWED == true ? 0 : rectPos.left == 0 ? CW_USEDEFAULT : rectPos.left,
+		WIN_DIRECT2D_FULLSCREEN_WINDOWED == true ? 0 : rectPos.top == 0 ? CW_USEDEFAULT : rectPos.top,
+		WIN_DIRECT2D_FULLSCREEN_WINDOWED == true ? GetSystemMetrics(SM_CXSCREEN) : winPos.right - winPos.left,
+		WIN_DIRECT2D_FULLSCREEN_WINDOWED == true ? GetSystemMetrics(SM_CYSCREEN) : winPos.bottom - winPos.top,
+		NULL, NULL, this->m_wc.hInstance,
 		(LPVOID) this
 	);
 	if (!m_hwnd) BPD_EXCEPTION("WINDOW ERROR");
@@ -148,15 +146,14 @@ void Window::Create(const_string className, const_string winTitle, RECT winPos, 
 	if(BPD_CONSOLE) {
 		AllocConsole();
 		AttachConsole(GetCurrentProcessId());
-		//freopen("CONIN$", "r", stdin);
-		//freopen("CONOUT$", "w", stdout);
-		//freopen("CONOUT$", "w", stderr);
 		freopen("CON", "w", stdin);
-		//RedirectIOToConsole();
-		printf(" ---- ToolKit Debug Console ----\n");
+		printf(" ---- ToolKit Debug Console ----\n\n\n");
+		printf("Creating Window\n");
+		printf("-----------------------------------\n");
 		printf(" Window Class: %s \n", className.data());
 		printf(" Window Title: %s \n", winTitle.data());
-		printf(" Window Full screen: %i \n", BPD_DIRECT2D_FALLSCREEN_WINDOWED);
+		printf(" Window Full screen: %i \n", WIN_DIRECT2D_FULLSCREEN_WINDOWED);
+		printf("-----------------------------------\n\n");
 	} else { FreeConsole(); }
 
 	m_timer.start();

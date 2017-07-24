@@ -8,7 +8,7 @@ int main(){
 		if (SUCCEEDED(CoInitialize(NULL))) {
 			{
 				MainWindow window;
-				window.Create("DemoAppClass", "DemoApp", RECT{ 0, 0, 1000, 600 }, true);
+				window.Create("AStar_f378gf", "A* Demo", RECT{ 0, 0, 1000, 600 }, true);
 				window.Show();
 				window.RunWindow();
 			}

@@ -9,7 +9,7 @@
 #pragma warning(disable: 4244)
 #define BPD_WINDEF
 #define WIN_DIRECT2D
-#define WIN_DIRECT2D_FALLSCREEN_WINDOWED
+//#define WIN_DIRECT2D_FULLSCREEN_WINDOWED
 #include "Core\bpdwindef.h"
 
 BPD_BEGIN

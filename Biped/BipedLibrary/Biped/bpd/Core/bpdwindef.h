@@ -71,16 +71,16 @@ BPD_END
 #endif
 #define BPD_DIRECT2D isDirect2D
 
-#if defined ( WIN_DIRECT2D_FALLSCREEN_WINDOWED )
+#if defined ( WIN_DIRECT2D_FULLSCREEN_WINDOWED )
 BPD_BEGIN
-static const bool isFallscreenWindowed = true;
+static const bool isFullscreenWindowed = true;
 BPD_END
 #else
 BPD_BEGIN
-static const bool isFallscreenWindowed = false;
+static const bool isFullscreenWindowed = false;
 BPD_END
 #endif
-#define BPD_DIRECT2D_FALLSCREEN_WINDOWED isFallscreenWindowed
+#define WIN_DIRECT2D_FULLSCREEN_WINDOWED isFullscreenWindowed
 
 #ifndef HINST_THISCOMPONENT
 EXTERN_C IMAGE_DOS_HEADER __ImageBase;

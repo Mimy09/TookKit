@@ -22,18 +22,28 @@ void MainWindow::OnMouseDown(int x, int y, UINT param){
 	if(param == 5){
 		for(int i = 0; i < m_nodePos.size(); i++){
 			if(m_nodePos[i].distance(bpd::Point(x, y)) < 10){
-				m_nodePos.erase(i); break;
+				if (m_lookatNodeIndex == i) m_lookatNodeIndex = 1;
+				m_nodePos.erase(i);
+				printf("\n---- Deleting Node ----\n");
+				printf("Index: %i\n\n", i);
+				break;
 			}
 		}
 		for(int i = 0; i < m_wallPos.size(); i++){
 			if(m_wallPos[i].pos.distance(bpd::Point(x, y)) < 40){
-				m_wallPos.erase(i); break;
+				m_wallPos.erase(i);
+				printf("\n---- Deleting Wall ----\n");
+				printf("Index: %i\n\n", i);
+				break;
 			}
 		}
 	} else if(param == 9){
 		int xpos = ((x + 40 / 2) / 40) * 40;
 		int ypos = ((y + 40 / 2) / 40) * 40;
 		m_wallPos.push_back(Wall(bpd::Point(xpos, ypos), 40));
+		printf("\n---- Adding Wall ----\n");
+		printf("Index: %i\n", m_wallPos.size());
+		printf("X:%i\tY:%i\n\n", xpos, ypos);
 	} else if(param == 1){
 		bool k = false;
 		for(int i = 0; i < m_nodePos.size(); i++){
@@ -48,6 +58,9 @@ void MainWindow::OnMouseDown(int x, int y, UINT param){
 		if(k == false) {
 			m_nodePos.push_back(bpd::Point(xpos, ypos));
 			m_lookatNodeIndex = -1;
+			printf("\n---- Adding Point ----\n");
+			printf("Index: %i\n", m_nodePos.size());
+			printf("X:%i\tY:%i\n\n", xpos, ypos);
 		}
 	} else if(param == 2){
 		moveingObject = true;
@@ -101,9 +114,16 @@ void MainWindow::OnKeyDown(UINT key){
 	if(key == 'Q'){
 		if(!m_nodePos.empty())m_nodePos.clear();
 		if(!m_wallPos.empty())m_wallPos.clear();
+		printf("\n---- Deleting All Objects  ----\n\n");
 	}
-	if(key == 'W'){ if(!m_wallPos.empty())m_wallPos.clear(); }
-	if(key == 'E'){ if(!m_nodePos.empty())m_nodePos.clear(); }
+	if(key == 'W'){
+		if(!m_wallPos.empty())m_wallPos.clear();
+		printf("\n---- Deleting All Walls  ----\n\n");
+	}
+	if(key == 'E'){
+		if(!m_nodePos.empty())m_nodePos.clear();
+		printf("\n---- Deleting All Nodes  ----\n\n");
+	}
 #ifdef BPD_DEBUGMODE
 	if(key == '1'){ db_mode1 = !db_mode1; }
 	if(key == '2'){ db_mode2 = !db_mode2; }
@@ -208,6 +228,16 @@ void MainWindow::OnPaint(ID2D1HwndRenderTarget* rt){
 					D2D1::Point2F(m_wallPos[i].seg2.vecX, m_wallPos[i].seg2.vecY),
 					m_RedBrush, 1.0f, 0
 				);
+				rt->DrawLine(
+					D2D1::Point2F(m_wallPos[i].seg3.x, m_wallPos[i].seg3.y),
+					D2D1::Point2F(m_wallPos[i].seg3.vecX, m_wallPos[i].seg3.vecY),
+					m_RedBrush, 1.0f, 0
+				);
+				rt->DrawLine(
+					D2D1::Point2F(m_wallPos[i].seg4.x, m_wallPos[i].seg4.y),
+					D2D1::Point2F(m_wallPos[i].seg4.vecX, m_wallPos[i].seg4.vecY),
+					m_RedBrush, 1.0f, 0
+				);
 			}
 #endif
 		}
@@ -236,9 +266,10 @@ void MainWindow::OnPaint(ID2D1HwndRenderTarget* rt){
 								);
 							}
 #endif
-							if(temp.intersect(m_wallPos[k].seg1) == true || temp.intersect(m_wallPos[k].seg2) == true){
-								collided = true;
-							}
+							if(temp.intersect(m_wallPos[k].seg1) == true ||
+								temp.intersect(m_wallPos[k].seg2) == true ||
+								temp.intersect(m_wallPos[k].seg3) == true || 
+								temp.intersect(m_wallPos[k].seg4) == true){ collided = true; }
 						}
 					}
 					if(collided){

@@ -1,1 +1,16 @@
-﻿  BipedLibrary.vcxproj -> D:\ProgramFiles\Programming\_GIT\ToolKit\Biped\BipedLibrary_bin\BipedLibrary_Win32.lib
+﻿  Exception.cpp
+  IO.cpp
+  LinkedList.cpp
+  IList.cpp
+  HashTable.cpp
+  Maths.cpp
+Maths.cpp(16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+Maths.cpp(17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Maths.cpp(30): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  ObjectPool.cpp
+  String.cpp
+  Timer.cpp
+  bpdWindow.cpp
+  bpdWinObject.cpp
+  Tree.cpp
+  BipedLibrary.vcxproj -> L:\_GIT\ToolKit\Biped\BipedLibrary_bin\BipedLibrary_Win32.lib
