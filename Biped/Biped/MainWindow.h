@@ -4,6 +4,7 @@
 #include "bpd\LinkedList.h"
 #include "bpd\Maths.h"
 #include "Wall.h"
+#include "Node.h"
 #include <iostream>
 
 class MainWindow : public bpd::Window {
@@ -16,8 +17,9 @@ class MainWindow : public bpd::Window {
 	ID2D1SolidColorBrush* m_NodeBrush;
 	ID2D1SolidColorBrush* m_PurpleBrush;
 
-	bpd::LinkedList< bpd::Point > m_nodePos;
+	bpd::LinkedList< AINode > m_nodePos;
 	bpd::LinkedList< Wall > m_wallPos;
+
 	bool placingWall, deletingObjects, moveingObject;
 	int m_movingObjectIndex, m_movingObjectType;
 	int m_endNodeIndex, m_lookatNodeIndex;
@@ -42,6 +44,8 @@ public:
 	virtual void OnDeviceResources(ID2D1HwndRenderTarget* rt);
 
 	virtual void OnPaint(ID2D1HwndRenderTarget* rt);
+
+	void linkNode(int index);
 
 	void DrawGrid(ID2D1HwndRenderTarget* rt, D2D1_SIZE_F rtSize, int width, int height);
 };

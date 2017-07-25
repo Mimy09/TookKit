@@ -1,6 +1,7 @@
 #include "Biped/bpd/Maths.h"
 BPD_BEGIN
 Point::Point() : x(0), y(0){}
+Point::Point(float n) : x(n), y(n){}
 Point::Point(const Point& Other){ x = Other.x; y = Other.y; }
 Point::Point(float px, float py) : x(px), y(py){}
 

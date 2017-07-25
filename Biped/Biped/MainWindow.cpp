@@ -21,7 +21,7 @@ MainWindow::~MainWindow(){}
 void MainWindow::OnMouseDown(int x, int y, UINT param){
 	if(param == 5){
 		for(int i = 0; i < m_nodePos.size(); i++){
-			if(m_nodePos[i].distance(bpd::Point(x, y)) < 10){
+			if(m_nodePos[i].GetPos().distance(bpd::Point(x, y)) < 10){
 				if (m_lookatNodeIndex == i) m_lookatNodeIndex = 1;
 				m_nodePos.erase(i);
 				printf("\n---- Deleting Node ----\n");
@@ -41,13 +41,25 @@ void MainWindow::OnMouseDown(int x, int y, UINT param){
 		int xpos = ((x + 40 / 2) / 40) * 40;
 		int ypos = ((y + 40 / 2) / 40) * 40;
 		m_wallPos.push_back(Wall(bpd::Point(xpos, ypos), 40));
+		for (int k = 0; k < m_nodePos.size(); k++) {
+			if (m_nodePos[k].m_edges.size() != 0)m_nodePos[k].m_edges.clear();
+			for (int i = 0; i < m_nodePos.size(); i++) {
+				for (int j = 0; j < m_nodePos[i].m_edges.size(); j++) {
+					if (*m_nodePos[i].m_edges[j].Point1 == m_nodePos[k] ||
+						*m_nodePos[i].m_edges[j].Point2 == m_nodePos[k]) {
+						m_nodePos[i].m_edges.erase(j);
+					}
+				}
+			}
+			linkNode(k);
+		}
 		printf("\n---- Adding Wall ----\n");
 		printf("Index: %i\n", m_wallPos.size());
 		printf("X:%i\tY:%i\n\n", xpos, ypos);
 	} else if(param == 1){
 		bool k = false;
 		for(int i = 0; i < m_nodePos.size(); i++){
-			if(m_nodePos[i].distance(bpd::Point(x, y)) < 10){
+			if(m_nodePos[i].GetPos().distance(bpd::Point(x, y)) < 10){
 				if(m_lookatNodeIndex == i){ m_lookatNodeIndex = -1; k = true; break; }
 				m_lookatNodeIndex = i;
 				k = true; break;
@@ -56,16 +68,21 @@ void MainWindow::OnMouseDown(int x, int y, UINT param){
 		int xpos = ((x + 10 / 2) / 10) * 10;
 		int ypos = ((y + 10 / 2) / 10) * 10;
 		if(k == false) {
-			m_nodePos.push_back(bpd::Point(xpos, ypos));
+			m_nodePos.push_back(AINode{ bpd::Point(xpos, ypos) });
 			m_lookatNodeIndex = -1;
+			linkNode(m_nodePos.size() - 1);
 			printf("\n---- Adding Point ----\n");
 			printf("Index: %i\n", m_nodePos.size());
-			printf("X:%i\tY:%i\n\n", xpos, ypos);
+			printf("X:%i\tY:%i\n", xpos, ypos);
+			for (int i = 0; i < m_nodePos[m_nodePos.size() - 1].m_edges.size(); i++) {
+				printf("Point1: %f, %f\n", m_nodePos[m_nodePos.size() - 1].m_edges[i].Point1->GetPos().x, m_nodePos[m_nodePos.size() - 1].m_edges[i].Point1->GetPos().y);
+				printf("Point2: %f, %f\n\n", m_nodePos[m_nodePos.size() - 1].m_edges[i].Point2->GetPos().x, m_nodePos[m_nodePos.size() - 1].m_edges[i].Point2->GetPos().y);
+			}
 		}
 	} else if(param == 2){
 		moveingObject = true;
 		for(int i = 0; i < m_nodePos.size(); i++){
-			if(m_nodePos[i].distance(bpd::Point(x, y)) < 10){
+			if(m_nodePos[i].GetPos().distance(bpd::Point(x, y)) < 10){
 				m_movingObjectType = 1;
 				m_movingObjectIndex = i;
 				break;
@@ -94,14 +111,37 @@ void MainWindow::OnMouseMove(int x, int y, UINT param){
 	m_mousePos.x = x; m_mousePos.y = y;
 	if(moveingObject && m_movingObjectIndex != -1){
 		if(m_movingObjectType == 1){
+			if (m_nodePos[m_movingObjectIndex].m_edges.size() != 0)m_nodePos[m_movingObjectIndex].m_edges.clear();
+			for (int i = 0; i < m_nodePos.size(); i++) {
+				for (int j = 0; j < m_nodePos[i].m_edges.size(); j++) {
+					if (*m_nodePos[i].m_edges[j].Point1 == m_nodePos[m_movingObjectIndex] ||
+						*m_nodePos[i].m_edges[j].Point2 == m_nodePos[m_movingObjectIndex]) {
+						m_nodePos[i].m_edges.erase(j);
+					}
+				}
+			}
+			linkNode(m_movingObjectIndex);
 			int xpos = ((x + 10 / 2) / 10) * 10;
 			int ypos = ((y + 10 / 2) / 10) * 10;
 
-			m_nodePos[m_movingObjectIndex].x = xpos;
-			m_nodePos[m_movingObjectIndex].y = ypos;
+			m_nodePos[m_movingObjectIndex].GetPos().x = xpos;
+			m_nodePos[m_movingObjectIndex].GetPos().y = ypos;
 		} else if(m_movingObjectType == 2){
 			int xpos = ((x + 20 / 2) / 20) * 20;
 			int ypos = ((y + 20 / 2) / 20) * 20;
+
+			for (int k = 0; k < m_nodePos.size(); k++) {
+				if (m_nodePos[k].m_edges.size() != 0)m_nodePos[k].m_edges.clear();
+				for (int i = 0; i < m_nodePos.size(); i++) {
+					for (int j = 0; j < m_nodePos[i].m_edges.size(); j++) {
+						if (*m_nodePos[i].m_edges[j].Point1 == m_nodePos[k] ||
+							*m_nodePos[i].m_edges[j].Point2 == m_nodePos[k]) {
+							m_nodePos[i].m_edges.erase(j);
+						}
+					}
+				}
+				linkNode(k);
+			}
 
 			m_wallPos[m_movingObjectIndex].pos.x = xpos;
 			m_wallPos[m_movingObjectIndex].pos.y = ypos;
@@ -133,7 +173,7 @@ void MainWindow::OnKeyDown(UINT key){
 #endif
 	if(key == 32){
 		for(int i = 0; i < m_nodePos.size(); i++){
-			if(m_nodePos[i].distance(bpd::Point(m_mousePos.x, m_mousePos.y)) < 10){
+			if(m_nodePos[i].GetPos().distance(bpd::Point(m_mousePos.x, m_mousePos.y)) < 10){
 				m_endNodeIndex = i; break;
 			}
 		}
@@ -144,12 +184,14 @@ void MainWindow::Update(double deltaTime){
 	if(m_timer.SetFPS(1)){
 		printf(" >> FPS: %i\n", m_timer.GetFPS());
 	}
-
 	InvalidateRect(hwnd(), NULL, FALSE);
 	UpdateWindow(hwnd());
 }
 
 void MainWindow::OnDiscardDeviceResources(){
+	/************************************************************************************************************/
+	/************************************************************************************************************/
+	/** Release Brushes */
 	bpd::SafeRelease(&m_WhiteBrush);
 	bpd::SafeRelease(&m_RedBrush);
 	bpd::SafeRelease(&m_FadedRedBrush);
@@ -158,40 +200,24 @@ void MainWindow::OnDiscardDeviceResources(){
 	bpd::SafeRelease(&m_NodeBrush);
 	bpd::SafeRelease(&m_BlueBrush);
 	bpd::SafeRelease(&m_PurpleBrush);
+	/************************************************************************************************************/
+	/************************************************************************************************************/
 }
 void MainWindow::OnDeviceResources(ID2D1HwndRenderTarget* rt){
-	rt->CreateSolidColorBrush(
-		D2D1::ColorF(D2D1::ColorF::White),
-		&m_WhiteBrush
-	);
-	rt->CreateSolidColorBrush(
-		D2D1::ColorF(D2D1::ColorF::Red),
-		&m_RedBrush
-	);
-	rt->CreateSolidColorBrush(
-		D2D1::ColorF(D2D1::ColorF::Red, 0.3f),
-		&m_FadedRedBrush
-	);
-	rt->CreateSolidColorBrush(
-		D2D1::ColorF(D2D1::ColorF::Gray),
-		&m_GrayBrush
-	);
-	rt->CreateSolidColorBrush(
-		D2D1::ColorF(D2D1::ColorF::Green),
-		&m_GreenBrush
-	);
-	rt->CreateSolidColorBrush(
-		D2D1::ColorF(D2D1::ColorF::Green),
-		&m_NodeBrush
-	);
-	rt->CreateSolidColorBrush(
-		D2D1::ColorF(D2D1::ColorF::Blue),
-		&m_BlueBrush
-	);
-	rt->CreateSolidColorBrush(
-		D2D1::ColorF(D2D1::ColorF::Purple),
-		&m_PurpleBrush
-	); 
+	/************************************************************************************************************/
+	/************************************************************************************************************/
+	/** Create Brushes */
+	rt->CreateSolidColorBrush( D2D1::ColorF(D2D1::ColorF::White), &m_WhiteBrush );
+	rt->CreateSolidColorBrush( D2D1::ColorF(D2D1::ColorF::Red), &m_RedBrush );
+	rt->CreateSolidColorBrush( D2D1::ColorF(D2D1::ColorF::Red, 0.3f), &m_FadedRedBrush );
+	rt->CreateSolidColorBrush( D2D1::ColorF(D2D1::ColorF::Gray), &m_GrayBrush );
+	rt->CreateSolidColorBrush( D2D1::ColorF(D2D1::ColorF::Green), &m_GreenBrush );
+	rt->CreateSolidColorBrush( D2D1::ColorF(D2D1::ColorF::Gray), &m_NodeBrush );
+	rt->CreateSolidColorBrush( D2D1::ColorF(D2D1::ColorF::BlueViolet), &m_BlueBrush );
+	rt->CreateSolidColorBrush( D2D1::ColorF(D2D1::ColorF::Purple), &m_PurpleBrush );
+	/************************************************************************************************************/
+	/************************************************************************************************************/
+	/** Set Opacity in Release Mode*/
 #ifndef BPD_DEBUGMODE
 	m_NodeBrush->SetOpacity(0.3f);
 	m_PurpleBrush->SetOpacity(0.8f);
@@ -199,6 +225,34 @@ void MainWindow::OnDeviceResources(ID2D1HwndRenderTarget* rt){
 	m_RedBrush->SetOpacity(0.3f);
 #endif
 }
+
+void MainWindow::linkNode(int index) {
+	if (!m_nodePos.empty()) {
+		int j = index;
+		for (int i = 0; i < m_nodePos.size(); i++) {
+			bool collided = false;
+			if (m_nodePos[i].GetPos() == m_nodePos[j].GetPos()) continue;
+			if (m_nodePos[i].GetPos().distance(m_nodePos[j].GetPos()) <= 200) {
+				for (int k = 0; k < m_wallPos.size(); k++) {
+					if (m_nodePos[i].GetPos().distance(m_wallPos[k].pos) <= 200) {
+						bpd::Segment temp(m_nodePos[i].GetPos().x, m_nodePos[i].GetPos().y, m_nodePos[j].GetPos().x, m_nodePos[j].GetPos().y);
+						if (temp.intersect(m_wallPos[k].seg1) == true ||
+							temp.intersect(m_wallPos[k].seg2) == true ||
+							temp.intersect(m_wallPos[k].seg3) == true ||
+							temp.intersect(m_wallPos[k].seg4) == true) {
+							collided = true;
+						}
+					}
+				}
+				if (collided) { continue; }
+				/** Add edges to nodes */
+				m_nodePos[i].m_edges.push_back(Edge(m_nodePos[i], m_nodePos[j]));
+				m_nodePos[j].m_edges.push_back(Edge(m_nodePos[j], m_nodePos[i]));
+			}
+		}
+	}
+}
+
 
 void MainWindow::OnPaint(ID2D1HwndRenderTarget* rt){
 	m_timer.calcFPS();
@@ -210,18 +264,20 @@ void MainWindow::OnPaint(ID2D1HwndRenderTarget* rt){
 	int height = static_cast<int>(rtSize.height);
 	DrawGrid(rt, rtSize, width, height);
 
+	/************************************************************************************************************/
+	/************************************************************************************************************/
+	/** Draw Walls */
 	if(!m_wallPos.empty()){
 		for(int i = 0; i < m_wallPos.size(); i++){
 			D2D1_RECT_F wall = D2D1::Rect(
 				m_wallPos[i].pos.x - 40.f, m_wallPos[i].pos.y - 40.f,
 				m_wallPos[i].pos.x + 40.f, m_wallPos[i].pos.y + 40.f
-			); rt->FillRectangle(&wall, m_GrayBrush);
-#ifdef BPD_DEBUGMODE
+			); rt->FillRectangle(&wall, m_WhiteBrush);
+			/** Draw Wall Colliders */
 			if(db_mode4){
 				rt->DrawLine(
 					D2D1::Point2F(m_wallPos[i].seg1.x, m_wallPos[i].seg1.y),
-					D2D1::Point2F(m_wallPos[i].seg1.vecX, m_wallPos[i].seg1.vecY),
-					m_RedBrush, 1.0f, 0
+					D2D1::Point2F(m_wallPos[i].seg1.vecX, m_wallPos[i].seg1.vecY), m_RedBrush, 1.0f, 0
 				);
 				rt->DrawLine(
 					D2D1::Point2F(m_wallPos[i].seg2.x, m_wallPos[i].seg2.y),
@@ -239,108 +295,55 @@ void MainWindow::OnPaint(ID2D1HwndRenderTarget* rt){
 					m_RedBrush, 1.0f, 0
 				);
 			}
-#endif
 		}
 	}
 	if(!m_nodePos.empty()){
 		for(int i = 0; i < m_nodePos.size(); i++){
-			for(int j = 0; j < m_nodePos.size(); j++){
-				int collided = false;
-				if(m_nodePos[i] == m_nodePos[j]) continue;
-				if(m_nodePos[i].distance(m_nodePos[j]) <= 200){
-					for(int k = 0; k < m_wallPos.size(); k++){
-						if(m_nodePos[i].distance(m_wallPos[k].pos) <= 200){
-							bpd::Segment temp(m_nodePos[i].x, m_nodePos[i].y, m_nodePos[j].x, m_nodePos[j].y);
-#ifdef BPD_DEBUGMODE
-							if(db_mode5 && m_lookatNodeIndex == -1){
-								rt->DrawLine(
-									D2D1::Point2F(m_nodePos[i].x, m_nodePos[i].y),
-									D2D1::Point2F(m_wallPos[k].pos.x, m_wallPos[k].pos.y),
-									m_BlueBrush, 1.0f, 0
-								);
-							} else if(m_lookatNodeIndex == i && db_mode5){
-								rt->DrawLine(
-									D2D1::Point2F(m_nodePos[i].x, m_nodePos[i].y),
-									D2D1::Point2F(m_wallPos[k].pos.x, m_wallPos[k].pos.y),
-									m_BlueBrush, 1.0f, 0
-								);
-							}
-#endif
-							if(temp.intersect(m_wallPos[k].seg1) == true ||
-								temp.intersect(m_wallPos[k].seg2) == true ||
-								temp.intersect(m_wallPos[k].seg3) == true || 
-								temp.intersect(m_wallPos[k].seg4) == true){ collided = true; }
-						}
-					}
-					if(collided){
-#ifdef BPD_DEBUGMODE
-						if(db_mode3 && m_lookatNodeIndex == -1){
-							rt->DrawLine(
-								D2D1::Point2F(m_nodePos[i].x, m_nodePos[i].y),
-								D2D1::Point2F(m_nodePos[j].x, m_nodePos[j].y),
-								m_RedBrush, 1.0f, 0
-							);
-						} else if(m_lookatNodeIndex == i && db_mode3){
-							rt->DrawLine(
-								D2D1::Point2F(m_nodePos[i].x, m_nodePos[i].y),
-								D2D1::Point2F(m_nodePos[j].x, m_nodePos[j].y),
-								m_RedBrush, 1.0f, 0
-							);
-						}
-#endif
-						continue;
-					}
-#ifdef BPD_DEBUGMODE
-					if(db_mode2 && m_lookatNodeIndex == -1){
-						rt->DrawLine(
-							D2D1::Point2F(m_nodePos[i].x, m_nodePos[i].y),
-							D2D1::Point2F(m_nodePos[j].x, m_nodePos[j].y),
-							m_NodeBrush, 1.0f, 0
-						);
-					} else if(m_lookatNodeIndex == i && db_mode2){
-						rt->DrawLine(
-							D2D1::Point2F(m_nodePos[i].x, m_nodePos[i].y),
-							D2D1::Point2F(m_nodePos[j].x, m_nodePos[j].y),
-							m_NodeBrush, 1.0f, 0
-						);
-					}
-#else
-					if(m_lookatNodeIndex == -1){
-						rt->DrawLine(
-							D2D1::Point2F(m_nodePos[i].x, m_nodePos[i].y),
-							D2D1::Point2F(m_nodePos[j].x, m_nodePos[j].y),
-							m_NodeBrush, 1.0f, 0
-						);
-					}
-#endif
-				}
-			}
-#ifdef BPD_DEBUGMODE
-			if(db_mode1){
+
+			/** Draw Nodes */
+			if (db_mode1) {
 				D2D1_ELLIPSE node = D2D1::Ellipse(
-					D2D1::Point2F(m_nodePos[i].x, m_nodePos[i].y),
+					D2D1::Point2F(m_nodePos[i].GetPos().x, m_nodePos[i].GetPos().y),
 					10.f, 10.f
 				);
-				if(m_endNodeIndex != i){ rt->FillEllipse(&node, m_GreenBrush); } else{ rt->FillEllipse(&node, m_PurpleBrush); }
-				if(m_lookatNodeIndex == i) rt->DrawEllipse(&node, m_RedBrush);
+				if (m_endNodeIndex != i) { rt->FillEllipse(&node, m_GrayBrush); }
+				else { rt->FillEllipse(&node, m_BlueBrush); }
+				if (m_lookatNodeIndex == i) rt->DrawEllipse(&node, m_RedBrush, 2);
 			}
-#else
-			D2D1_ELLIPSE node = D2D1::Ellipse(
-				D2D1::Point2F(m_nodePos[i].x, m_nodePos[i].y),
-				10.f, 10.f
-			);
-			if(m_endNodeIndex != i){ rt->FillEllipse(&node, m_GreenBrush); } else{ rt->FillEllipse(&node, m_PurpleBrush); }
-			if(m_lookatNodeIndex == i) rt->DrawEllipse(&node, m_RedBrush);
-#endif
+			/** Draw Edegs */
+			if (db_mode2) {
+				 if (m_lookatNodeIndex == -1) {
+					for (int j = 0; j < m_nodePos[i].m_edges.size(); j++) {
+						rt->DrawLine(
+							D2D1::Point2F(m_nodePos[i].m_edges[j].Point1->GetPos().x, m_nodePos[i].m_edges[j].Point1->GetPos().y),
+							D2D1::Point2F(m_nodePos[i].m_edges[j].Point2->GetPos().x, m_nodePos[i].m_edges[j].Point2->GetPos().y),
+							m_GrayBrush, 1, 0
+						);
+					}
+				}
+			}
 		}
 	}
-	
+	if (db_mode2) {
+		if (m_lookatNodeIndex != -1) {
+			for (int j = 0; j < m_nodePos[m_lookatNodeIndex].m_edges.size(); j++) {
+				rt->DrawLine(
+					D2D1::Point2F(m_nodePos[m_lookatNodeIndex].m_edges[j].Point1->GetPos().x, m_nodePos[m_lookatNodeIndex].m_edges[j].Point1->GetPos().y),
+					D2D1::Point2F(m_nodePos[m_lookatNodeIndex].m_edges[j].Point2->GetPos().x, m_nodePos[m_lookatNodeIndex].m_edges[j].Point2->GetPos().y),
+					m_GrayBrush, 1, 0
+				);
+			}
+		}
+	}
+
 	if(placingWall){
+		/** Draw Temp Wall */
 		D2D1_RECT_F tempWall = D2D1::Rect(
 			m_mousePos.x - 40.f, m_mousePos.y - 40.f,
 			m_mousePos.x + 40.f, m_mousePos.y + 40.f
 		); rt->FillRectangle(&tempWall, m_FadedRedBrush);
 	} else if(deletingObjects){
+		/** Draw Temp Delete */
 		rt->DrawLine(
 			D2D1::Point2F(m_mousePos.x - 10.f, m_mousePos.y + 10.f),
 			D2D1::Point2F(m_mousePos.x + 10.f, m_mousePos.y - 10.f),
@@ -352,12 +355,14 @@ void MainWindow::OnPaint(ID2D1HwndRenderTarget* rt){
 			m_FadedRedBrush, 5.0f, 0
 		);
 	} else{
+		/** Draw Temp Node */
 		D2D1_ELLIPSE node = D2D1::Ellipse(
 			D2D1::Point2F(m_mousePos.x, m_mousePos.y),
 			10.f, 10.f
 		); rt->FillEllipse(&node, m_FadedRedBrush);
 	}
 	{
+		/** Draw Keys */
 		const WCHAR m_GameText[] = L"---- A* Testing Area ----\n[Q] =\t\tClear All\n[W] =\t\tClear Walls\n[E] =\t\tClear Nodes\n[LShift] =\tDelete Mode\n[LCtrl] =\tWall Mode\n[LClick] =\tPlace Object\n[RClick] =\tMove Object\n[space] =\tSelect End Node";
 		rt->DrawText(
 			m_GameText,
@@ -366,16 +371,15 @@ void MainWindow::OnPaint(ID2D1HwndRenderTarget* rt){
 			D2D1::RectF(0, 0, 400, 200),
 			m_WhiteBrush
 		);
-#ifdef BPD_DEBUGMODE
-		const WCHAR m_debugText[] = L"---- Debug Binds ----\n[1] =\t\tShow Nodes\n[2] =\t\tShow Node Connectors\n[3] =\t\tShow Collision Lines\n[4] =\t\tShow Box Collider\n[5] =\t\tShow What Nodes Check";
+		/** Draw Debug Keys */
+		const WCHAR m_debugText[] = L"---- Debug Binds ----\n[1] =\t\tShow Nodes\n[2] =\t\tShow Node Connectors";
 		rt->DrawText(
 			m_debugText,
 			BPD_SIZEOF(m_debugText),
 			m_pDebugTextFormat,
-			D2D1::RectF(0,height, 400, height - 100),
+			D2D1::RectF(0,height, 400, height - 50),
 			m_WhiteBrush
 		);
-#endif // !BPD_DEBUGMODE
 	}
 }
 

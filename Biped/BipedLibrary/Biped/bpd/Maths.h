@@ -7,6 +7,7 @@ class Point{
 public:
 	float x, y;
 	Point();
+	Point(float);
 	Point(const Point& Other);
 	Point(float px, float py);
 	Point sub(Point Other);

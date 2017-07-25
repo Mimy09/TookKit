@@ -207,7 +207,7 @@ public:
 			Node* temp = new Node;
 			temp = m_head;
 			m_head = m_head->next;
-			delete temp;
+			BPD_SAFE_DELETE(temp);
 		} else if(pos == m_size){
 			cur = m_head;
 			while(cur->next != nullptr){
@@ -216,7 +216,7 @@ public:
 			}
 			m_tail = pre;
 			pre->next = nullptr;
-			delete cur;
+			BPD_SAFE_DELETE(cur);
 		} else{
 			cur = m_head;
 			for(int i = 0; i < pos; i++){
@@ -224,13 +224,13 @@ public:
 				cur = cur->next;
 			}
 			pre->next = cur->next;
-			delete cur;
+			BPD_SAFE_DELETE(cur);
 		}
 	}
 	/* ---- PUSH BACK ----
 	Pushes a new value onto the end of the linked list
 	#param value - The value that will be pushed*/
-	void push_back(const T& value){
+	void push_back(T& value){
 		m_size++;
 		Node* temp = new Node;
 		temp->value = value;
@@ -238,6 +238,7 @@ public:
 		if(m_head == nullptr){
 			m_head = temp;
 			m_tail = temp;
+			//m_head->next = m_tail;
 			temp = nullptr;
 		} else{
 			if(m_head == m_tail){

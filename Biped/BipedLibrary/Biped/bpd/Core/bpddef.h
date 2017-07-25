@@ -2,7 +2,6 @@
 #ifndef BPD_DEF_
 #define BPD_DEF_
 
-
 #define BPD_TEMPLATE_INCLUE(class_) template class class_
 #define BPD_TEMPLATE_CLASS template <class T>
 #define BPD_TEMPLATE(class_) class_<T>
@@ -21,7 +20,7 @@
 
 
 BPD_BEGIN
-	typedef unsigned int size_type;
+	typedef unsigned int size_type;    
 template <bpd::size_type N>
 	struct type_of_size{ typedef char type[N]; };
 template <typename _Type, bpd::size_type Size>
