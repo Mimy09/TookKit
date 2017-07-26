@@ -121,32 +121,26 @@ void Window::Create(const_string className, const_string winTitle, RECT winPos, 
 	AdjustWindowRectEx(&winPos, WS_OVERLAPPEDWINDOW, false, WS_EX_OVERLAPPEDWINDOW);
 
 	this->m_hwnd = CreateWindowEx(
-		WS_EX_OVERLAPPEDWINDOW,
+		0,
 		className.data(),
 		winTitle.data(),
 		WIN_DIRECT2D_FULLSCREEN_WINDOWED == true ?
 		WS_POPUP : WS_OVERLAPPEDWINDOW ^ WS_THICKFRAME ^ WS_MAXIMIZEBOX | WS_CLIPCHILDREN,
 		WIN_DIRECT2D_FULLSCREEN_WINDOWED == true ? 0 : rectPos.left == 0 ? CW_USEDEFAULT : rectPos.left,
 		WIN_DIRECT2D_FULLSCREEN_WINDOWED == true ? 0 : rectPos.top == 0 ? CW_USEDEFAULT : rectPos.top,
-		WIN_DIRECT2D_FULLSCREEN_WINDOWED == true ? GetSystemMetrics(SM_CXSCREEN) : winPos.right - winPos.left,
-		WIN_DIRECT2D_FULLSCREEN_WINDOWED == true ? GetSystemMetrics(SM_CYSCREEN) : winPos.bottom - winPos.top,
+		WIN_DIRECT2D_FULLSCREEN_WINDOWED == true ? GetSystemMetrics(SM_CXSCREEN): winPos.right - winPos.left,
+		WIN_DIRECT2D_FULLSCREEN_WINDOWED == true ? GetSystemMetrics(SM_CYSCREEN): winPos.bottom - winPos.top,
 		NULL, NULL, this->m_wc.hInstance,
 		(LPVOID) this
 	);
 	if (!m_hwnd) BPD_EXCEPTION("WINDOW ERROR");
-
-	//SetWindowPos(
-	//	m_hwnd,
-	//	HWND_TOP,
-	//	0, 0, 0, 0,
-	//	SWP_NOSIZE | SWP_NOMOVE ^ SWP_DRAWFRAME
-	//);
 
 	/* ---- Start the console ---- */
 	if(BPD_CONSOLE) {
 		AllocConsole();
 		AttachConsole(GetCurrentProcessId());
 		freopen("CON", "w", stdin);
+
 		printf(" ---- ToolKit Debug Console ----\n\n\n");
 		printf("Creating Window\n");
 		printf("-----------------------------------\n");

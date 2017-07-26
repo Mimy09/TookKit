@@ -17,13 +17,16 @@ class MainWindow : public bpd::Window {
 	ID2D1SolidColorBrush* m_NodeBrush;
 	ID2D1SolidColorBrush* m_PurpleBrush;
 
-	bpd::LinkedList< AINode > m_nodePos;
+	bpd::LinkedList< AINode > m_nodePos, m_openNodes, m_closedNodes;
 	bpd::LinkedList< Wall > m_wallPos;
 
 	bool placingWall, deletingObjects, moveingObject;
 	int m_movingObjectIndex, m_movingObjectType;
 	int m_endNodeIndex, m_lookatNodeIndex;
 	bpd::Point m_mousePos;
+
+
+
 #ifdef BPD_DEBUGMODE
 	bool db_mode1, db_mode2, db_mode3, db_mode4, db_mode5;
 	int m_debugMode;
@@ -46,6 +49,8 @@ public:
 	virtual void OnPaint(ID2D1HwndRenderTarget* rt);
 
 	void linkNode(int index);
+
+	void ai_checkNode(int index);
 
 	void DrawGrid(ID2D1HwndRenderTarget* rt, D2D1_SIZE_F rtSize, int width, int height);
 };

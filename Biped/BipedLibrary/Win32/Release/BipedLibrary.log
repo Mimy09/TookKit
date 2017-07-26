@@ -1,16 +1,17 @@
 ﻿  Exception.cpp
-  IO.cpp
-  LinkedList.cpp
-  IList.cpp
   HashTable.cpp
+  IList.cpp
+  IO.cpp
   Maths.cpp
-Maths.cpp(16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-Maths.cpp(17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-Maths.cpp(30): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+Maths.cpp(17): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+Maths.cpp(18): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Maths.cpp(31): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   ObjectPool.cpp
   String.cpp
   Timer.cpp
-  bpdWindow.cpp
-  bpdWinObject.cpp
   Tree.cpp
+  bpdWinObject.cpp
+  bpdWindow.cpp
+l:\_git\toolkit\biped\bipedlibrary\biped\bpd\Core\bpdwindef.h(83): warning C4005: 'WIN_DIRECT2D_FULLSCREEN_WINDOWED': macro redefinition
+  l:\_git\toolkit\biped\bipedlibrary\Biped\bpd\bpdWindow.h(12): note: see previous definition of 'WIN_DIRECT2D_FULLSCREEN_WINDOWED'
   BipedLibrary.vcxproj -> L:\_GIT\ToolKit\Biped\BipedLibrary_bin\BipedLibrary_Win32.lib

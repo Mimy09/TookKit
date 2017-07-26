@@ -5,13 +5,13 @@
 struct Edge;
 struct AINode {
 public:
-	AINode(bpd::Point p): g(10), m_pos(p), open(-1){}
-	AINode() : g(10), m_pos(NULL), open(-1) {}
-	int f() { return h + g; }
+	AINode(bpd::Point p): g(10), m_pos(p) {}
+	AINode() : g(10), m_pos(NULL) {}
 
-	bool IsOpen() { return open; }
-	void Open() { open = 1; }
-	void Close() { open = 0; }
+	int f() { return h + g; }
+	enum Type {
+		OPEN, CLOSED, START, END, NUL
+	}; Type type = NUL;
 
 	bool operator==(AINode & other) { return GetPos() == other.GetPos(); }
 
@@ -19,9 +19,10 @@ public:
 	bpd::Point& GetPos() { return m_pos; }
 
 	bpd::LinkedList< Edge > m_edges;
+	int h, g;
 private:
+	AINode* m_parent;
 	bpd::Point m_pos;
-	int open, h, g;
 };
 
 struct Edge {

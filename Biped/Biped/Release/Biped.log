@@ -119,6 +119,9 @@ C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dwrite.h(4988):
   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50966): note: see previous definition of 'DWRITE_E_FONTCOLLECTIONOBSOLETE'
 C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dwrite.h(4993): warning C4005: 'DWRITE_E_ALREADYREGISTERED': macro redefinition
   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50975): note: see previous definition of 'DWRITE_E_ALREADYREGISTERED'
+l:\_git\toolkit\biped\bipedlibrary\biped\bpd\Core\bpdwindef.h(83): warning C4005: 'WIN_DIRECT2D_FULLSCREEN_WINDOWED': macro redefinition
+  L:\_GIT\ToolKit\Biped\BipedLibrary\Biped\bpd\bpdWindow.h(12): note: see previous definition of 'WIN_DIRECT2D_FULLSCREEN_WINDOWED'
+l:\_git\toolkit\biped\biped\Node.h(12): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
   MainWindow.cpp
 C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(59): warning C4005: 'D2DERR_WRONG_STATE': macro redefinition
   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50511): note: see previous definition of 'D2DERR_WRONG_STATE'
@@ -240,9 +243,10 @@ C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dwrite.h(4988):
   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50966): note: see previous definition of 'DWRITE_E_FONTCOLLECTIONOBSOLETE'
 C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dwrite.h(4993): warning C4005: 'DWRITE_E_ALREADYREGISTERED': macro redefinition
   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50975): note: see previous definition of 'DWRITE_E_ALREADYREGISTERED'
-LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  Generating code
-  All 166 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Finished generating code
-  Biped.vcxproj -> L:\_GIT\ToolKit\Biped\Release\BipedExample.exe
-  Biped.vcxproj -> L:\_GIT\ToolKit\Biped\Release\BipedExample.pdb (Full PDB)
+l:\_git\toolkit\biped\bipedlibrary\biped\bpd\Core\bpdwindef.h(83): warning C4005: 'WIN_DIRECT2D_FULLSCREEN_WINDOWED': macro redefinition
+  L:\_GIT\ToolKit\Biped\BipedLibrary\Biped\bpd\bpdWindow.h(12): note: see previous definition of 'WIN_DIRECT2D_FULLSCREEN_WINDOWED'
+l:\_git\toolkit\biped\biped\Node.h(12): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+MainWindow.cpp(277): error C2065: 'db_mode4': undeclared identifier
+MainWindow.cpp(304): error C2065: 'db_mode1': undeclared identifier
+MainWindow.cpp(314): error C2065: 'db_mode2': undeclared identifier
+MainWindow.cpp(327): error C2065: 'db_mode2': undeclared identifier

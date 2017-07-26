@@ -123,8 +123,11 @@ public:
 	/* ---- OPERATOR= ----
 	Copies the values across*/
 	void operator=(LinkedList& other){
+		if (other.size() == 0) return;
+		if (size() != 0) clear();
+		for(int i = 0; i < other.size(); i++)
+			push_back( other[i] );
 		if(this->size() != other.size()) BPD_EXCEPTION("Linked List Copy Size");
-		for(int i = 0; i < m_size; i++) find(i) = other[i];
 	};
 
 	/* ---- SIZE ----
@@ -238,7 +241,6 @@ public:
 		if(m_head == nullptr){
 			m_head = temp;
 			m_tail = temp;
-			//m_head->next = m_tail;
 			temp = nullptr;
 		} else{
 			if(m_head == m_tail){

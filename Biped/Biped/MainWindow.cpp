@@ -23,6 +23,16 @@ void MainWindow::OnMouseDown(int x, int y, UINT param){
 		for(int i = 0; i < m_nodePos.size(); i++){
 			if(m_nodePos[i].GetPos().distance(bpd::Point(x, y)) < 10){
 				if (m_lookatNodeIndex == i) m_lookatNodeIndex = 1;
+				
+				for (int j = 0; j < m_nodePos.size(); j++) {
+					for (int k = 0; k < m_nodePos[j].m_edges.size(); k++) {
+						if (*m_nodePos[j].m_edges[k].Point1 == m_nodePos[i] ||
+							*m_nodePos[j].m_edges[k].Point2 == m_nodePos[i]) {
+							m_nodePos[j].m_edges.erase(k);
+						}
+					}
+				}
+
 				m_nodePos.erase(i);
 				printf("\n---- Deleting Node ----\n");
 				printf("Index: %i\n\n", i);
@@ -96,6 +106,14 @@ void MainWindow::OnMouseDown(int x, int y, UINT param){
 			}
 		}
 	}
+	if (param == 16) {
+		for (int i = 0; i < m_nodePos.size(); i++) {
+			if (m_nodePos[i].GetPos().distance(bpd::Point(x, y)) < 10) {
+				ai_checkNode(i);
+				break;
+			}
+		}
+	}
 }
 void MainWindow::OnMouseUp(int x, int y, UINT param){
 	if(param == 0){
@@ -142,7 +160,6 @@ void MainWindow::OnMouseMove(int x, int y, UINT param){
 				}
 				linkNode(k);
 			}
-
 			m_wallPos[m_movingObjectIndex].pos.x = xpos;
 			m_wallPos[m_movingObjectIndex].pos.y = ypos;
 			m_wallPos[m_movingObjectIndex].UpdateColliders();
@@ -253,6 +270,16 @@ void MainWindow::linkNode(int index) {
 	}
 }
 
+void MainWindow::ai_checkNode(int index) {
+	m_closedNodes.push_back(m_nodePos[index]);
+	m_nodePos[index].type = AINode::CLOSED;
+	for (int i = 0; i < m_nodePos[index].m_edges.size(); i++) {
+		if (m_closedNodes.find_i(*m_nodePos[index].m_edges[i].Point2) != -1) continue;
+		m_openNodes.push_back(*m_nodePos[index].m_edges[i].Point2);
+		m_nodePos[index].m_edges[i].Point2->type = AINode::OPEN;
+	}
+}
+
 
 void MainWindow::OnPaint(ID2D1HwndRenderTarget* rt){
 	m_timer.calcFPS();
@@ -306,9 +333,21 @@ void MainWindow::OnPaint(ID2D1HwndRenderTarget* rt){
 					D2D1::Point2F(m_nodePos[i].GetPos().x, m_nodePos[i].GetPos().y),
 					10.f, 10.f
 				);
-				if (m_endNodeIndex != i) { rt->FillEllipse(&node, m_GrayBrush); }
+				
+				if (m_endNodeIndex != i) {
+					switch (m_nodePos[i].type) {
+					case AINode::OPEN:
+						rt->FillEllipse(&node, m_GreenBrush); break;
+					case AINode::CLOSED:
+						rt->FillEllipse(&node, m_RedBrush); break;
+					default:
+						rt->FillEllipse(&node, m_GrayBrush); break;
+					}
+				}
 				else { rt->FillEllipse(&node, m_BlueBrush); }
 				if (m_lookatNodeIndex == i) rt->DrawEllipse(&node, m_RedBrush, 2);
+
+
 			}
 			/** Draw Edegs */
 			if (db_mode2) {
