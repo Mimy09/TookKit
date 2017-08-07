@@ -1,5 +1,5 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Biped.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  MainWindow.cpp
+  Main.cpp
 c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(59): warning C4005: 'D2DERR_WRONG_STATE': macro redefinition
   c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50511): note: see previous definition of 'D2DERR_WRONG_STATE'
 c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(64): warning C4005: 'D2DERR_NOT_INITIALIZED': macro redefinition

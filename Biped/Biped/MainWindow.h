@@ -17,7 +17,8 @@ class MainWindow : public bpd::Window {
 	ID2D1SolidColorBrush* m_NodeBrush;
 	ID2D1SolidColorBrush* m_PurpleBrush;
 
-	bpd::LinkedList< AINode > m_nodePos, m_openNodes, m_closedNodes;
+	bpd::LinkedList< AINode > m_nodePos;
+	bpd::LinkedList< AINode* >  m_openNodes, m_closedNodes, m_path;
 	bpd::LinkedList< Wall > m_wallPos;
 
 	bool placingWall, deletingObjects, moveingObject;
@@ -25,7 +26,8 @@ class MainWindow : public bpd::Window {
 	int m_endNodeIndex, m_lookatNodeIndex;
 	bpd::Point m_mousePos;
 
-
+	AINode* StartNode;
+	AINode* EndNode;
 
 #ifdef BPD_DEBUGMODE
 	bool db_mode1, db_mode2, db_mode3, db_mode4, db_mode5;
@@ -50,7 +52,9 @@ public:
 
 	void linkNode(int index);
 
-	void ai_checkNode(int index);
+	bpd::LinkedList<AINode*> CalcPath(int Start, int End);
+
+	bpd::LinkedList< AINode* > reconstructPath(AINode* cur);
 
 	void DrawGrid(ID2D1HwndRenderTarget* rt, D2D1_SIZE_F rtSize, int width, int height);
 };

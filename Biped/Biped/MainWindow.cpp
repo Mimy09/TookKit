@@ -109,7 +109,8 @@ void MainWindow::OnMouseDown(int x, int y, UINT param){
 	if (param == 16) {
 		for (int i = 0; i < m_nodePos.size(); i++) {
 			if (m_nodePos[i].GetPos().distance(bpd::Point(x, y)) < 10) {
-				ai_checkNode(i);
+				m_nodePos[i].type2 = AINode::START;
+				CalcPath(i, m_endNodeIndex);
 				break;
 			}
 		}
@@ -125,6 +126,7 @@ void MainWindow::OnMouseUp(int x, int y, UINT param){
 void MainWindow::OnKeyUp(UINT key){
 	if(key == 17){ placingWall = false; } else if(key == 16){ deletingObjects = false; }
 }
+
 void MainWindow::OnMouseMove(int x, int y, UINT param){
 	m_mousePos.x = x; m_mousePos.y = y;
 	if(moveingObject && m_movingObjectIndex != -1){
@@ -191,7 +193,9 @@ void MainWindow::OnKeyDown(UINT key){
 	if(key == 32){
 		for(int i = 0; i < m_nodePos.size(); i++){
 			if(m_nodePos[i].GetPos().distance(bpd::Point(m_mousePos.x, m_mousePos.y)) < 10){
-				m_endNodeIndex = i; break;
+				m_endNodeIndex = i;
+				m_nodePos[i].type2 = AINode::END;
+				break;
 			}
 		}
 	}
@@ -243,6 +247,60 @@ void MainWindow::OnDeviceResources(ID2D1HwndRenderTarget* rt){
 #endif
 }
 
+bpd::LinkedList< AINode* > MainWindow::reconstructPath(AINode* cur) {
+	if (cur->type2 != AINode::START) {
+		m_path.push_back(cur);
+		reconstructPath(&cur->GetParent());
+	} return m_path;
+}
+
+bpd::LinkedList<AINode*> MainWindow::CalcPath(int Start, int End) {
+	StartNode = &m_nodePos.find(Start);
+	EndNode = &m_nodePos.find(End);
+
+	m_openNodes.clear();
+	m_closedNodes.clear();
+
+	for (int i = 0; i < m_nodePos.size(); i++) {
+		m_nodePos[i].h = 0;
+		m_nodePos[i].g = 0;
+	}
+
+	m_openNodes.push_back(StartNode);
+	StartNode->type = AINode::OPEN;
+
+	while (!m_openNodes.empty()) {
+
+		AINode* CurrentNode = m_openNodes[0];
+		for (int i = 0; i < m_openNodes.size(); i++) {
+			if (m_openNodes[i]->f() < (*CurrentNode).f()) {
+				CurrentNode = m_openNodes[i];
+			}
+			if (EndNode == m_openNodes[i]) return reconstructPath(m_openNodes[i]);
+		}
+		m_openNodes.remove(m_openNodes.find_i(CurrentNode));
+		m_closedNodes.push_back(CurrentNode);
+		(*CurrentNode).type = AINode::CLOSED;
+
+		for (int i = 0; i < (*CurrentNode).m_edges.size(); i++) {
+			if ((*CurrentNode).m_edges[i].Point2->type == AINode::CLOSED) continue;
+			if ((*CurrentNode).m_edges[i].Point2->type != AINode::OPEN) {
+				m_openNodes.push_back((*CurrentNode).m_edges[i].Point2);
+				(*CurrentNode).m_edges[i].Point2->type = AINode::OPEN;
+
+				int tentative_gScore = (*CurrentNode).g + (*CurrentNode).GetPos().distance((*CurrentNode).m_edges[i].Point2->GetPos());
+				if (tentative_gScore >= (*CurrentNode).m_edges[i].Point2->g) continue;
+
+				(*CurrentNode).m_edges[i].Point2->g = tentative_gScore;
+				(*CurrentNode).m_edges[i].Point2->SetParent(CurrentNode);
+				(*CurrentNode).m_edges[i].Point2->h = (*CurrentNode).m_edges[i].Point2->GetPos().distance(EndNode->GetPos());
+
+			}
+		}
+	}
+	return bpd::LinkedList<AINode*>();
+}
+
 void MainWindow::linkNode(int index) {
 	if (!m_nodePos.empty()) {
 		int j = index;
@@ -267,16 +325,6 @@ void MainWindow::linkNode(int index) {
 				m_nodePos[j].m_edges.push_back(Edge(m_nodePos[j], m_nodePos[i]));
 			}
 		}
-	}
-}
-
-void MainWindow::ai_checkNode(int index) {
-	m_closedNodes.push_back(m_nodePos[index]);
-	m_nodePos[index].type = AINode::CLOSED;
-	for (int i = 0; i < m_nodePos[index].m_edges.size(); i++) {
-		if (m_closedNodes.find_i(*m_nodePos[index].m_edges[i].Point2) != -1) continue;
-		m_openNodes.push_back(*m_nodePos[index].m_edges[i].Point2);
-		m_nodePos[index].m_edges[i].Point2->type = AINode::OPEN;
 	}
 }
 
@@ -336,10 +384,10 @@ void MainWindow::OnPaint(ID2D1HwndRenderTarget* rt){
 				
 				if (m_endNodeIndex != i) {
 					switch (m_nodePos[i].type) {
-					case AINode::OPEN:
-						rt->FillEllipse(&node, m_GreenBrush); break;
 					case AINode::CLOSED:
 						rt->FillEllipse(&node, m_RedBrush); break;
+					case AINode::OPEN:
+						rt->FillEllipse(&node, m_GreenBrush); break;
 					default:
 						rt->FillEllipse(&node, m_GrayBrush); break;
 					}

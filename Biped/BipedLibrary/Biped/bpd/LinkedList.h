@@ -60,22 +60,22 @@ public:
 	/* ---- OPERATOR[] ----
 	Returns the value found at the index
 	#return T& - reference to the value found*/
-	T& operator[](const size_type index) const{
+	T& operator[](const int index) const{
 		if(index == -1) BPD_EXCEPTION("Out of range");
 		Node* cur, *pre;
 		cur = m_head;
 		for(int i = 0; i < (int)index; i++){
-			if(cur->next == nullptr && i < (int)index)
-				BPD_EXCEPTION("Out of range");
+			if (cur->next == nullptr && i < (int)index) BPD_EXCEPTION("Out of range");
 			pre = cur;
 			cur = cur->next;
-		} return cur->value;
+		}
+		return cur->value;
 	}
 	/* ---- FIND ----
 	Returns the value found at the index
 	#param index - The position in the linked list
 	#return T& - reference to the value found*/
-	T& find(const size_type index) const{
+	T& find(const int index) const{
 		if(index == -1) BPD_EXCEPTION("Out of range");
 		Node* cur, *pre;
 		cur = m_head;
@@ -108,7 +108,8 @@ public:
 	Returns the Node at the given position
 	#param index - The position in the linked list
 	#return T& - reference to the value found*/
-	int find_i(T value) const{
+	int find_i(T& value) const{
+		if (m_size == 0) return -1;
 		Node* cur, *pre;
 		cur = m_head;
 		int count = 0;
@@ -145,6 +146,7 @@ public:
 	/* ---- CLEAR ----
 	Clears the linked list*/
 	void clear(){
+		if (m_size == 0) return;
 		m_size = 0;
 		Node* cur, *pre;
 		cur = m_head;
@@ -204,11 +206,11 @@ public:
 	Deletes a node at a given position
 	#param pos - The position that will be deleted in the linked list*/
 	void erase(const int pos){
+		if (pos == -1) BPD_EXCEPTION("Value not found");
 		m_size--;
 		Node* cur, *pre = nullptr;
 		if(pos == 0) {
-			Node* temp = new Node;
-			temp = m_head;
+			Node* temp = m_head;
 			m_head = m_head->next;
 			BPD_SAFE_DELETE(temp);
 		} else if(pos == m_size){
@@ -228,6 +230,35 @@ public:
 			}
 			pre->next = cur->next;
 			BPD_SAFE_DELETE(cur);
+		}
+	}
+	/* ---- ERASE ----
+	Deletes a node at a given position
+	#param pos - The position that will be deleted in the linked list*/
+	void remove(const int pos) {
+		if (pos == -1) BPD_EXCEPTION("Value not found");
+		m_size--;
+		Node* cur, *pre = nullptr;
+		if (pos == 0) {
+			Node* temp = m_head;
+			m_head = m_head->next;
+		}
+		else if (pos == m_size) {
+			cur = m_head;
+			while (cur->next != nullptr) {
+				pre = cur;
+				cur = cur->next;
+			}
+			m_tail = pre;
+			pre->next = nullptr;
+		}
+		else {
+			cur = m_head;
+			for (int i = 0; i < pos; i++) {
+				pre = cur;
+				cur = cur->next;
+			}
+			pre->next = cur->next;
 		}
 	}
 	/* ---- PUSH BACK ----

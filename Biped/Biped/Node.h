@@ -10,10 +10,18 @@ public:
 
 	int f() { return h + g; }
 	enum Type {
-		OPEN, CLOSED, START, END, NUL
-	}; Type type = NUL;
+		OPEN, CLOSED, NUL = 2
+	}; Type type = Type::NUL;
+
+	enum  Type2 {
+		START, END
+	}; Type2 type2;
 
 	bool operator==(AINode & other) { return GetPos() == other.GetPos(); }
+
+	AINode& GetParent() { return *m_parent; }
+	void SetParent(AINode* parent) { m_parent = parent; }
+
 
 	void SetPos(bpd::Point p) { m_pos = p; }
 	bpd::Point& GetPos() { return m_pos; }
