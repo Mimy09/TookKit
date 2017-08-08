@@ -10,16 +10,16 @@ public:
 
 	int f() { return h + g; }
 	enum Type {
-		OPEN, CLOSED, NUL = 2
+		OPEN, PATH, CLOSED, NUL
 	}; Type type = Type::NUL;
 
 	enum  Type2 {
-		START, END
-	}; Type2 type2;
+		START, END, NIL
+	}; Type2 type2 = Type2::NIL;
 
 	bool operator==(AINode & other) { return GetPos() == other.GetPos(); }
 
-	AINode& GetParent() { return *m_parent; }
+	AINode* GetParent() { if (m_parent != nullptr) return m_parent; else return nullptr; }
 	void SetParent(AINode* parent) { m_parent = parent; }
 
 
@@ -29,7 +29,7 @@ public:
 	bpd::LinkedList< Edge > m_edges;
 	int h, g;
 private:
-	AINode* m_parent;
+	AINode* m_parent = nullptr;
 	bpd::Point m_pos;
 };
 

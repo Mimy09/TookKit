@@ -12,11 +12,6 @@
 #include <dwrite.h>
 #include <wincodec.h>
 
-//#include <fcntl.h>
-//#include <io.h>
-//#include <iostream>
-//#include <fstream>
-
 #include "../Exception.h"
 #include "../IList.h"
 #include "../ObjectPool.h"

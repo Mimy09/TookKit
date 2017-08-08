@@ -13,6 +13,7 @@ LRESULT BPD_WinProc() {
 		SetWindowLongPtr(hwnd, 0, (LONG_PTR)cs->lpCreateParams);
 		break;
 	}
+	case WM_ERASEBKGND: return 1;
 	case WM_CREATE:
 	{
 		win->screenWidth = GetSystemMetrics(SM_CXSCREEN);
@@ -51,7 +52,6 @@ LRESULT BPD_WinProc() {
 	{
 		InvalidateRect(hwnd, NULL, FALSE);
 	} break;
-	case WM_ERASEBKGND: return 1;
 	case WM_DESTROY: win->OnDestroy(); break;
 	case WM_CLOSE: win->OnClose(); break;
 	case WM_SYSCOMMAND:
@@ -246,8 +246,6 @@ HRESULT Window::CreateDeviceResources() {
 			D2D1::HwndRenderTargetProperties(m_hwnd, size),
 			&m_pRenderTarget
 		);
-
-		
 
 		if(SUCCEEDED(result)) result = m_pWriteFactory->CreateTextFormat(
 			L"Verdana",

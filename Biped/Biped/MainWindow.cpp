@@ -1,4 +1,5 @@
 #include "MainWindow.h"
+
 MainWindow::MainWindow()
 	: placingWall(false), deletingObjects(false), moveingObject(false), m_movingObjectIndex(-1), m_movingObjectType(0){
 	m_WhiteBrush = NULL;
@@ -11,8 +12,8 @@ MainWindow::MainWindow()
 	m_PurpleBrush = NULL;
 #ifdef BPD_DEBUGMODE
 	m_debugMode = 4;
-	db_mode1 = db_mode2 = true;
-	db_mode3 = db_mode4 = db_mode5 = false;
+	db_mode3 = db_mode1 = db_mode2 = true;
+	db_mode4 = db_mode5 = false;
 #endif
 	m_lookatNodeIndex = -1;
 }
@@ -250,7 +251,8 @@ void MainWindow::OnDeviceResources(ID2D1HwndRenderTarget* rt){
 bpd::LinkedList< AINode* > MainWindow::reconstructPath(AINode* cur) {
 	if (cur->type2 != AINode::START) {
 		m_path.push_back(cur);
-		reconstructPath(&cur->GetParent());
+		m_path.back().value->type = AINode::PATH;
+		reconstructPath(cur->GetParent());
 	} return m_path;
 }
 
@@ -264,6 +266,9 @@ bpd::LinkedList<AINode*> MainWindow::CalcPath(int Start, int End) {
 	for (int i = 0; i < m_nodePos.size(); i++) {
 		m_nodePos[i].h = 0;
 		m_nodePos[i].g = 0;
+		m_nodePos[i].SetParent(nullptr);
+		m_nodePos[i].type = AINode::NUL;
+		m_nodePos[i].type2 == AINode::START ? AINode::START : AINode::NIL;
 	}
 
 	m_openNodes.push_back(StartNode);
@@ -276,11 +281,15 @@ bpd::LinkedList<AINode*> MainWindow::CalcPath(int Start, int End) {
 			if (m_openNodes[i]->f() < (*CurrentNode).f()) {
 				CurrentNode = m_openNodes[i];
 			}
-			if (EndNode == m_openNodes[i]) return reconstructPath(m_openNodes[i]);
 		}
+
 		m_openNodes.remove(m_openNodes.find_i(CurrentNode));
 		m_closedNodes.push_back(CurrentNode);
 		(*CurrentNode).type = AINode::CLOSED;
+
+		if (CurrentNode == EndNode) {
+			return reconstructPath(CurrentNode);
+		}
 
 		for (int i = 0; i < (*CurrentNode).m_edges.size(); i++) {
 			if ((*CurrentNode).m_edges[i].Point2->type == AINode::CLOSED) continue;
@@ -289,12 +298,21 @@ bpd::LinkedList<AINode*> MainWindow::CalcPath(int Start, int End) {
 				(*CurrentNode).m_edges[i].Point2->type = AINode::OPEN;
 
 				int tentative_gScore = (*CurrentNode).g + (*CurrentNode).GetPos().distance((*CurrentNode).m_edges[i].Point2->GetPos());
-				if (tentative_gScore >= (*CurrentNode).m_edges[i].Point2->g) continue;
 
 				(*CurrentNode).m_edges[i].Point2->g = tentative_gScore;
 				(*CurrentNode).m_edges[i].Point2->SetParent(CurrentNode);
 				(*CurrentNode).m_edges[i].Point2->h = (*CurrentNode).m_edges[i].Point2->GetPos().distance(EndNode->GetPos());
 
+			}
+			else {
+				int tentative_gScore = (*CurrentNode).g + (*CurrentNode).GetPos().distance((*CurrentNode).m_edges[i].Point2->GetPos());
+				if (tentative_gScore <= (*CurrentNode).m_edges[i].Point2->g) {
+
+					(*CurrentNode).m_edges[i].Point2->g = tentative_gScore;
+					(*CurrentNode).m_edges[i].Point2->SetParent(CurrentNode);
+					(*CurrentNode).m_edges[i].Point2->h = (*CurrentNode).m_edges[i].Point2->GetPos().distance(EndNode->GetPos());
+
+				}
 			}
 		}
 	}
@@ -381,9 +399,24 @@ void MainWindow::OnPaint(ID2D1HwndRenderTarget* rt){
 					D2D1::Point2F(m_nodePos[i].GetPos().x, m_nodePos[i].GetPos().y),
 					10.f, 10.f
 				);
-				
+				if (db_mode3) {
+					if (m_nodePos[i].GetParent() != nullptr) {
+						bpd::Point thisnode = (m_nodePos[i].GetParent()->GetPos() - m_nodePos[i].GetPos()).normal();
+						thisnode = thisnode * 50;
+						rt->DrawLine(
+							D2D1::Point2F(m_nodePos[i].GetPos().x, m_nodePos[i].GetPos().y),
+							D2D1::Point2F(
+								m_nodePos[i].GetPos().x + thisnode.x,
+								m_nodePos[i].GetPos().y + thisnode.y
+							),
+							m_WhiteBrush, 3, 0
+						);
+					}
+				}
 				if (m_endNodeIndex != i) {
 					switch (m_nodePos[i].type) {
+					case AINode::PATH:
+						rt->FillEllipse(&node, m_PurpleBrush); break;
 					case AINode::CLOSED:
 						rt->FillEllipse(&node, m_RedBrush); break;
 					case AINode::OPEN:

@@ -120,7 +120,7 @@ c:\program files (x86)\microsoft directx sdk (june 2010)\include\dwrite.h(4988):
   c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50966): note: see previous definition of 'DWRITE_E_FONTCOLLECTIONOBSOLETE'
 c:\program files (x86)\microsoft directx sdk (june 2010)\include\dwrite.h(4993): warning C4005: 'DWRITE_E_ALREADYREGISTERED': macro redefinition
   c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50975): note: see previous definition of 'DWRITE_E_ALREADYREGISTERED'
-l:\_git\toolkit\biped\bipedlibrary\biped\bpd\core\bpdwindef.h(83): warning C4005: 'WIN_DIRECT2D_FULLSCREEN_WINDOWED': macro redefinition
+l:\_git\toolkit\biped\bipedlibrary\biped\bpd\core\bpdwindef.h(78): warning C4005: 'WIN_DIRECT2D_FULLSCREEN_WINDOWED': macro redefinition
   l:\_git\toolkit\biped\bipedlibrary\biped\bpd\bpdwindow.h(12): note: see previous definition of 'WIN_DIRECT2D_FULLSCREEN_WINDOWED'
   Biped.vcxproj -> L:\_GIT\ToolKit\Biped\Debug\BipedExample.exe
   Biped.vcxproj -> L:\_GIT\ToolKit\Biped\Debug\BipedExample.pdb (Partial PDB)
