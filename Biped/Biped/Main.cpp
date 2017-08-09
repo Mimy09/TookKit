@@ -2,6 +2,8 @@
 #include "MainWindow.h"
 #include "FlockingWindow.h"
 
+#include "..\Biped_V2\bpd2.h"
+
 int main(){
 	try {
 		HeapSetInformation(NULL, HeapEnableTerminationOnCorruption, NULL, 0);

@@ -164,6 +164,8 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Biped_V2\type-window.cpp" />
     <ClCompile Include="Exception.cpp" />
     <ClCompile Include="IO.cpp" />
     <ClCompile Include="LinkedList.cpp" />
@@ -178,6 +180,7 @@
     <ClCompile Include="Tree.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Application.h" />
     <ClInclude Include="Biped\bpd\dxRenderModel.h" />
     <ClInclude Include="Biped\bpd\Exception.h" />
     <ClInclude Include="Biped\bpd\IList.h" />
@@ -194,6 +197,10 @@
     <ClInclude Include="Biped\bpd\bpdWinObjects.h" />
     <ClInclude Include="Biped\bpd\Tree.h" />
     <ClInclude Include="Biped\bpd\Maths.h" />
+    <ClInclude Include="Biped_V2\macros.h" />
+    <ClInclude Include="Biped_V2\bpd2.h" />
+    <ClInclude Include="Biped_V2\detail.h" />
+    <ClInclude Include="Biped_V2\type-window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,1 +1,22 @@
-﻿  BipedLibrary.vcxproj -> L:\_GIT\ToolKit\Biped\BipedLibrary_bin\BipedLibrary_Win32_DEBUG.lib
+﻿  Tree.cpp
+  bpdWinObject.cpp
+  Timer.cpp
+  String.cpp
+  Maths.cpp
+l:\_git\toolkit\biped\bipedlibrary\maths.cpp(20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+l:\_git\toolkit\biped\bipedlibrary\maths.cpp(21): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+l:\_git\toolkit\biped\bipedlibrary\maths.cpp(34): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  HashTable.cpp
+  IList.cpp
+  IO.cpp
+  Exception.cpp
+  type-window.cpp
+  Application.cpp
+  Generating Code...
+l:\_git\toolkit\biped\bipedlibrary\maths.cpp(12): error C4716: 'bpd::Point::limit': must return a value
+  Compiling...
+  bpdWindow.cpp
+l:\_git\toolkit\biped\bipedlibrary\biped\bpd\core\bpdwindef.h(78): warning C4005: 'WIN_DIRECT2D_FULLSCREEN_WINDOWED': macro redefinition
+  l:\_git\toolkit\biped\bipedlibrary\biped\bpd\bpdwindow.h(12): note: see previous definition of 'WIN_DIRECT2D_FULLSCREEN_WINDOWED'
+  ObjectPool.cpp
+  Generating Code...

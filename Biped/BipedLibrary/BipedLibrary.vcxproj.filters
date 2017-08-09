@@ -80,6 +80,13 @@
     <ClInclude Include="Biped\bpd\Maths.h">
       <Filter>Biped\Standard\Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Biped\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Biped_V2\bpd2.h" />
+    <ClInclude Include="Biped_V2\detail.h" />
+    <ClInclude Include="Biped_V2\type-window.h" />
+    <ClInclude Include="Biped_V2\macros.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Exception.cpp">
@@ -118,5 +125,9 @@
     <ClCompile Include="Maths.cpp">
       <Filter>Biped\Standard\Src</Filter>
     </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Biped\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Biped_V2\type-window.cpp" />
   </ItemGroup>
 </Project>

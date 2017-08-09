@@ -2,6 +2,8 @@
 #ifndef BPD_DEF_
 #define BPD_DEF_
 
+#define BPD_DEF_HANDLE(name) typedef struct name##_bpd* name
+
 #define BPD_TEMPLATE_INCLUE(class_) template class class_
 #define BPD_TEMPLATE_CLASS template <class T>
 #define BPD_TEMPLATE(class_) class_<T>
@@ -20,7 +22,6 @@
 { if(pObj != nullptr) {delete[] pObj; pObj = nullptr;}}
 #define BPD_SAFE_DELETE(pObj) \
 { if(pObj != nullptr) {delete pObj; pObj = nullptr;}}
-
 
 BPD_BEGIN
 	typedef unsigned int size_type;    

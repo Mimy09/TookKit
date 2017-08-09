@@ -12,12 +12,17 @@ public:
 	Point(float px, float py);
 	Point sub(Point Other);
 	Point add(Point Other);
+	Point mult(Point Other);
+	Point div(Point Other);
+	void limit(float max);
 	Point scale(float s);
+	float dot(Point Other);
 	Point operator-(Point Other);
 	Point operator+(Point Other);
 	Point operator*(float Scale);
 	bool operator==(Point Other);
 	float distance(Point Other);
+	float mag();
 	Point normal();
 };
 

@@ -7,7 +7,7 @@ Flock::~Flock() {
 
 void Flock::run() {
 	for (int i = 0; i < boids.size(); i++) {
-		boids[i].run();
+		boids[i].run(boids);
 	}
 }
 

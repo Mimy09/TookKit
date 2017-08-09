@@ -7,13 +7,18 @@ Point::Point(float px, float py) : x(px), y(py){}
 
 Point Point::sub(Point Other){ return Point(x - Other.x, y - Other.y); }
 Point Point::add(Point Other){ return Point(x + Other.x, y + Other.y); }
+Point Point::mult(Point Other) { return Point(x * Other.x, y * Other.y); }
+Point Point::div(Point Other) { return Point(x / Other.x, y / Other.y); }
 Point Point::scale(float s){ return Point(x*s, y*s); }
+void Point::limit(float max) { x > max ? max : x; y > max ? max : y; }
+float Point::dot(Point Other){ return (x*Other.x) + (y*Other.y); }
 
 Point Point::operator-(Point Other){ return sub(Other); }
 Point Point::operator+(Point Other){ return add(Other); }
 Point Point::operator*(float Scale){ return scale(Scale); }
 bool Point::operator==(Point Other){ return x == Other.x ? y == Other.y ? true : false : false; }
 
+float Point::mag() { return sqrt(x*x + y*y); }
 float Point::distance(Point Other){ return sqrt((x - Other.x)*(x - Other.x) + (y - Other.y)*(y - Other.y)); }
 Point Point::normal(){ return Point(x / sqrt(x*x + y*y), y / sqrt(x*x + y*y)); }
 

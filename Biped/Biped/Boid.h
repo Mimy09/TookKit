@@ -15,12 +15,23 @@ public:
 	float maxspeed;
 
 	Boid(int x, int y);
+	Boid(const Boid&);
+	Boid();
 	~Boid();
 
-	void run();
-	void applyForce(bpd::Point force);
+	bpd::Point separate(bpd::LinkedList<Boid> boids);
+	bpd::Point cohesion(bpd::LinkedList<Boid> boids);
+	bpd::Point align(bpd::LinkedList<Boid> boids);
+	bpd::Point seek(bpd::Point target);
 	void flock(bpd::LinkedList<Boid> boids);
+	void applyForce(bpd::Point force);
+
+
+	void borders();
 	void update();
+	float theta();
+	void run(bpd::LinkedList<Boid> boids);
+
 
 private:
 
