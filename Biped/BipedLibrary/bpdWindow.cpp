@@ -82,7 +82,7 @@ LRESULT BPD_WinProc() {
 	case WM_LBUTTONDBLCLK: win->OnMouseDClick(LOWORD(lParam), HIWORD(lParam), wParam); break;
 	case WM_MOUSEMOVE: win->OnMouseMove(LOWORD(lParam), HIWORD(lParam), wParam); break;
 	case WM_KEYDOWN:
-		if (wParam == VK_ESCAPE) PostQuitMessage(0);
+		if(wParam == VK_ESCAPE){ PostQuitMessage(0); }
 		win->OnKeyDown(wParam); break;
 	case WM_KEYUP: win->OnKeyUp(wParam); break;
 	case WM_MOVE: win->OnWindowMove(); break;
@@ -139,7 +139,9 @@ void Window::Create(const_string className, const_string winTitle, RECT winPos, 
 	if(BPD_CONSOLE) {
 		AllocConsole();
 		AttachConsole(GetCurrentProcessId());
-		freopen("CON", "w", stdin);
+		freopen("CONIN$", "r", stdin);
+		freopen("CONOUT$", "w", stdout);
+		freopen("CONOUT$", "w", stderr);
 
 		printf(" ---- ToolKit Debug Console ----\n\n\n");
 		printf("Creating Window\n");
@@ -153,7 +155,6 @@ void Window::Create(const_string className, const_string winTitle, RECT winPos, 
 	m_timer.start();
 	prevTime = 0;
 	m_version = "VERSION 0.7";
-
 }
 void Window::Initialize() {
 	m_pDirect2dFactory = NULL;

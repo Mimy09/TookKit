@@ -1,14 +1,11 @@
 #include <iostream>
 #include "MainWindow.h"
-#include "FlockingWindow.h"
-
-#include "..\Biped_V2\bpd2.h"
 
 int main(){
 	try {
 		HeapSetInformation(NULL, HeapEnableTerminationOnCorruption, NULL, 0);
 		if (SUCCEEDED(CoInitialize(NULL))) { {
-			FlockingWindow window;
+			MainWindow window;
 			window.Create("AStar_f378gf", "A* Demo", RECT{ 0, 0, 1000, 600 }, true);
 			window.Show();
 			window.RunWindow();

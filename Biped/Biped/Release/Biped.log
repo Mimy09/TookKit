@@ -1,252 +1,262 @@
-﻿  Main.cpp
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(59): warning C4005: 'D2DERR_WRONG_STATE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50511): note: see previous definition of 'D2DERR_WRONG_STATE'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(64): warning C4005: 'D2DERR_NOT_INITIALIZED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50520): note: see previous definition of 'D2DERR_NOT_INITIALIZED'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(69): warning C4005: 'D2DERR_UNSUPPORTED_OPERATION': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50529): note: see previous definition of 'D2DERR_UNSUPPORTED_OPERATION'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(74): warning C4005: 'D2DERR_SCANNER_FAILED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50538): note: see previous definition of 'D2DERR_SCANNER_FAILED'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(79): warning C4005: 'D2DERR_SCREEN_ACCESS_DENIED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50547): note: see previous definition of 'D2DERR_SCREEN_ACCESS_DENIED'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(84): warning C4005: 'D2DERR_DISPLAY_STATE_INVALID': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50556): note: see previous definition of 'D2DERR_DISPLAY_STATE_INVALID'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(89): warning C4005: 'D2DERR_ZERO_VECTOR': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50565): note: see previous definition of 'D2DERR_ZERO_VECTOR'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(97): warning C4005: 'D2DERR_INTERNAL_ERROR': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50574): note: see previous definition of 'D2DERR_INTERNAL_ERROR'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(103): warning C4005: 'D2DERR_DISPLAY_FORMAT_NOT_SUPPORTED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50583): note: see previous definition of 'D2DERR_DISPLAY_FORMAT_NOT_SUPPORTED'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(108): warning C4005: 'D2DERR_INVALID_CALL': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50592): note: see previous definition of 'D2DERR_INVALID_CALL'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(113): warning C4005: 'D2DERR_NO_HARDWARE_DEVICE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50601): note: see previous definition of 'D2DERR_NO_HARDWARE_DEVICE'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(119): warning C4005: 'D2DERR_RECREATE_TARGET': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50610): note: see previous definition of 'D2DERR_RECREATE_TARGET'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(124): warning C4005: 'D2DERR_TOO_MANY_SHADER_ELEMENTS': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50619): note: see previous definition of 'D2DERR_TOO_MANY_SHADER_ELEMENTS'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(129): warning C4005: 'D2DERR_SHADER_COMPILE_FAILED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50628): note: see previous definition of 'D2DERR_SHADER_COMPILE_FAILED'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(134): warning C4005: 'D2DERR_MAX_TEXTURE_SIZE_EXCEEDED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50637): note: see previous definition of 'D2DERR_MAX_TEXTURE_SIZE_EXCEEDED'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(139): warning C4005: 'D2DERR_UNSUPPORTED_VERSION': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50646): note: see previous definition of 'D2DERR_UNSUPPORTED_VERSION'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(144): warning C4005: 'D2DERR_BAD_NUMBER': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50655): note: see previous definition of 'D2DERR_BAD_NUMBER'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(149): warning C4005: 'D2DERR_WRONG_FACTORY': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50664): note: see previous definition of 'D2DERR_WRONG_FACTORY'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(154): warning C4005: 'D2DERR_LAYER_ALREADY_IN_USE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50673): note: see previous definition of 'D2DERR_LAYER_ALREADY_IN_USE'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(159): warning C4005: 'D2DERR_POP_CALL_DID_NOT_MATCH_PUSH': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50682): note: see previous definition of 'D2DERR_POP_CALL_DID_NOT_MATCH_PUSH'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(164): warning C4005: 'D2DERR_WRONG_RESOURCE_DOMAIN': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50691): note: see previous definition of 'D2DERR_WRONG_RESOURCE_DOMAIN'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(169): warning C4005: 'D2DERR_PUSH_POP_UNBALANCED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50700): note: see previous definition of 'D2DERR_PUSH_POP_UNBALANCED'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(174): warning C4005: 'D2DERR_RENDER_TARGET_HAS_LAYER_OR_CLIPRECT': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50709): note: see previous definition of 'D2DERR_RENDER_TARGET_HAS_LAYER_OR_CLIPRECT'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(179): warning C4005: 'D2DERR_INCOMPATIBLE_BRUSH_TYPES': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50718): note: see previous definition of 'D2DERR_INCOMPATIBLE_BRUSH_TYPES'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(184): warning C4005: 'D2DERR_WIN32_ERROR': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50727): note: see previous definition of 'D2DERR_WIN32_ERROR'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(189): warning C4005: 'D2DERR_TARGET_NOT_GDI_COMPATIBLE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50736): note: see previous definition of 'D2DERR_TARGET_NOT_GDI_COMPATIBLE'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(194): warning C4005: 'D2DERR_TEXT_EFFECT_IS_WRONG_TYPE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50745): note: see previous definition of 'D2DERR_TEXT_EFFECT_IS_WRONG_TYPE'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(201): warning C4005: 'D2DERR_TEXT_RENDERER_NOT_RELEASED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50754): note: see previous definition of 'D2DERR_TEXT_RENDERER_NOT_RELEASED'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(206): warning C4005: 'D2DERR_EXCEEDS_MAX_BITMAP_SIZE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50763): note: see previous definition of 'D2DERR_EXCEEDS_MAX_BITMAP_SIZE'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50092): note: see previous definition of 'DXGI_STATUS_OCCLUDED'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50101): note: see previous definition of 'DXGI_STATUS_CLIPPED'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(14): warning C4005: 'DXGI_STATUS_NO_REDIRECTION': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50110): note: see previous definition of 'DXGI_STATUS_NO_REDIRECTION'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(15): warning C4005: 'DXGI_STATUS_NO_DESKTOP_ACCESS': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50119): note: see previous definition of 'DXGI_STATUS_NO_DESKTOP_ACCESS'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(16): warning C4005: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50128): note: see previous definition of 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(17): warning C4005: 'DXGI_STATUS_MODE_CHANGED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50137): note: see previous definition of 'DXGI_STATUS_MODE_CHANGED'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(18): warning C4005: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50146): note: see previous definition of 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(21): warning C4005: 'DXGI_ERROR_INVALID_CALL': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50161): note: see previous definition of 'DXGI_ERROR_INVALID_CALL'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(22): warning C4005: 'DXGI_ERROR_NOT_FOUND': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50170): note: see previous definition of 'DXGI_ERROR_NOT_FOUND'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(23): warning C4005: 'DXGI_ERROR_MORE_DATA': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50179): note: see previous definition of 'DXGI_ERROR_MORE_DATA'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(24): warning C4005: 'DXGI_ERROR_UNSUPPORTED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50188): note: see previous definition of 'DXGI_ERROR_UNSUPPORTED'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(25): warning C4005: 'DXGI_ERROR_DEVICE_REMOVED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50197): note: see previous definition of 'DXGI_ERROR_DEVICE_REMOVED'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(26): warning C4005: 'DXGI_ERROR_DEVICE_HUNG': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50206): note: see previous definition of 'DXGI_ERROR_DEVICE_HUNG'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(27): warning C4005: 'DXGI_ERROR_DEVICE_RESET': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50216): note: see previous definition of 'DXGI_ERROR_DEVICE_RESET'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(28): warning C4005: 'DXGI_ERROR_WAS_STILL_DRAWING': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50225): note: see previous definition of 'DXGI_ERROR_WAS_STILL_DRAWING'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(29): warning C4005: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50235): note: see previous definition of 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(30): warning C4005: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50244): note: see previous definition of 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(31): warning C4005: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50254): note: see previous definition of 'DXGI_ERROR_DRIVER_INTERNAL_ERROR'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(32): warning C4005: 'DXGI_ERROR_NONEXCLUSIVE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50263): note: see previous definition of 'DXGI_ERROR_NONEXCLUSIVE'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(33): warning C4005: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50272): note: see previous definition of 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(34): warning C4005: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50282): note: see previous definition of 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(35): warning C4005: 'DXGI_ERROR_REMOTE_OUTOFMEMORY': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50291): note: see previous definition of 'DXGI_ERROR_REMOTE_OUTOFMEMORY'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(608): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50445): note: see previous definition of 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50454): note: see previous definition of 'D3D10_ERROR_FILE_NOT_FOUND'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dwrite.h(4962): warning C4005: 'DWRITE_E_FILEFORMAT': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50921): note: see previous definition of 'DWRITE_E_FILEFORMAT'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dwrite.h(4967): warning C4005: 'DWRITE_E_UNEXPECTED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50930): note: see previous definition of 'DWRITE_E_UNEXPECTED'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dwrite.h(4972): warning C4005: 'DWRITE_E_NOFONT': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50939): note: see previous definition of 'DWRITE_E_NOFONT'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dwrite.h(4978): warning C4005: 'DWRITE_E_FILENOTFOUND': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50948): note: see previous definition of 'DWRITE_E_FILENOTFOUND'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dwrite.h(4983): warning C4005: 'DWRITE_E_FILEACCESS': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50957): note: see previous definition of 'DWRITE_E_FILEACCESS'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dwrite.h(4988): warning C4005: 'DWRITE_E_FONTCOLLECTIONOBSOLETE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50966): note: see previous definition of 'DWRITE_E_FONTCOLLECTIONOBSOLETE'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dwrite.h(4993): warning C4005: 'DWRITE_E_ALREADYREGISTERED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50975): note: see previous definition of 'DWRITE_E_ALREADYREGISTERED'
-l:\_git\toolkit\biped\bipedlibrary\biped\bpd\Core\bpdwindef.h(83): warning C4005: 'WIN_DIRECT2D_FULLSCREEN_WINDOWED': macro redefinition
-  L:\_GIT\ToolKit\Biped\BipedLibrary\Biped\bpd\bpdWindow.h(12): note: see previous definition of 'WIN_DIRECT2D_FULLSCREEN_WINDOWED'
-l:\_git\toolkit\biped\biped\Node.h(12): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
+﻿  Boid.cpp
+d:\programfiles\programming\_git\toolkit\biped\bipedlibrary\biped\bpd\Core\bpdwindef.h(88): warning C4005: 'WIN_DIRECT2D_FULLSCREEN_WINDOWED': macro redefinition
+  D:\ProgramFiles\Programming\_GIT\ToolKit\Biped\BipedLibrary\Biped\bpd/bpdWindow.h(12): note: see previous definition of 'WIN_DIRECT2D_FULLSCREEN_WINDOWED'
+d:\programfiles\programming\_git\toolkit\biped\biped\Blackboard.h(76): warning C4346: 'pt_id': dependent name is not a type
+  d:\programfiles\programming\_git\toolkit\biped\biped\Blackboard.h(76): note: prefix with 'typename' to indicate a type
+d:\programfiles\programming\_git\toolkit\biped\biped\Blackboard.h(76): error C2061: syntax error: identifier 'pt_id'
+d:\programfiles\programming\_git\toolkit\biped\biped\Blackboard.h(77): error C2065: 'T': undeclared identifier
+d:\programfiles\programming\_git\toolkit\biped\biped\Blackboard.h(77): error C2923: 'Blackboard': 'T' is not a valid template type argument for parameter '_Type'
+Boid.cpp(3): error C2062: type 'int' unexpected
+Boid.cpp(3): error C2143: syntax error: missing ';' before '{'
+Boid.cpp(3): error C2447: '{': missing function header (old-style formal list?)
+Boid.cpp(17): error C2988: unrecognizable template declaration/definition
+Boid.cpp(17): error C2059: syntax error: 'const'
+Boid.cpp(17): error C2143: syntax error: missing ';' before '{'
+Boid.cpp(17): error C2447: '{': missing function header (old-style formal list?)
+Boid.cpp(18): error C2988: unrecognizable template declaration/definition
+Boid.cpp(18): error C2059: syntax error: ')'
+Boid.cpp(18): error C2143: syntax error: missing ';' before '{'
+Boid.cpp(18): error C2447: '{': missing function header (old-style formal list?)
+Boid.cpp(19): error C2988: unrecognizable template declaration/definition
+Boid.cpp(19): error C2059: syntax error: ')'
+Boid.cpp(19): error C2143: syntax error: missing ';' before '{'
+Boid.cpp(19): error C2447: '{': missing function header (old-style formal list?)
+Boid.cpp(21): error C3203: 'Boid': unspecialized class template can't be used as a template argument for template parameter 'T', expected a real type
+Boid.cpp(22): error C2355: 'this': can only be referenced inside non-static member functions or non-static data member initializers
+Boid.cpp(23): error C2355: 'this': can only be referenced inside non-static member functions or non-static data member initializers
+Boid.cpp(24): error C3861: 'flock': identifier not found
+Boid.cpp(25): error C3861: 'update': identifier not found
+Boid.cpp(26): error C3861: 'render': identifier not found
+Boid.cpp(27): error C3861: 'borders': identifier not found
+Boid.cpp(31): error C2065: 'm_path': undeclared identifier
+Boid.cpp(32): error C2065: 'm_currentNode': undeclared identifier
+Boid.cpp(33): error C2065: 'dir': undeclared identifier
+Boid.cpp(34): error C2065: 'followASTAR': undeclared identifier
+Boid.cpp(38): error C2065: 'acceleration': undeclared identifier
+Boid.cpp(41): error C3203: 'Boid': unspecialized class template can't be used as a template argument for template parameter 'T', expected a real type
+Boid.cpp(42): error C2065: 'followASTAR': undeclared identifier
+Boid.cpp(43): error C3861: 'separate': identifier not found
+Boid.cpp(44): error C3861: 'align': identifier not found
+Boid.cpp(45): error C3861: 'cohesion': identifier not found
+Boid.cpp(48): warning C4305: 'argument': truncation from 'double' to 'float'
+Boid.cpp(49): warning C4305: 'argument': truncation from 'double' to 'float'
+Boid.cpp(55): error C2065: 'm_path': undeclared identifier
+Boid.cpp(56): error C2065: 'followASTAR': undeclared identifier
+Boid.cpp(58): error C2065: 'position': undeclared identifier
+Boid.cpp(58): error C2065: 'm_path': undeclared identifier
+Boid.cpp(58): error C2065: 'm_currentNode': undeclared identifier
+Boid.cpp(59): error C2065: 'dir': undeclared identifier
+Boid.cpp(59): error C2065: 'm_currentNode': undeclared identifier
+Boid.cpp(60): error C2065: 'm_currentNode': undeclared identifier
+Boid.cpp(61): error C2065: 'm_currentNode': undeclared identifier
+Boid.cpp(62): error C2065: 'dir': undeclared identifier
+Boid.cpp(64): error C2065: 'm_currentNode': undeclared identifier
+Boid.cpp(64): error C2065: 'm_path': undeclared identifier
+Boid.cpp(65): error C2065: 'm_currentNode': undeclared identifier
+Boid.cpp(66): error C2065: 'dir': undeclared identifier
+Boid.cpp(68): error C2065: 'm_path': undeclared identifier
+Boid.cpp(68): error C2065: 'm_currentNode': undeclared identifier
+Boid.cpp(68): error C3861: 'seek': identifier not found
+Boid.cpp(74): error C2065: 'velocity': undeclared identifier
+Boid.cpp(74): error C2065: 'acceleration': undeclared identifier
+Boid.cpp(75): error C2065: 'velocity': undeclared identifier
+Boid.cpp(75): error C2065: 'maxspeed': undeclared identifier
+Boid.cpp(76): error C2065: 'position': undeclared identifier
+Boid.cpp(76): error C2065: 'velocity': undeclared identifier
+Boid.cpp(77): error C2065: 'acceleration': undeclared identifier
+Boid.cpp(81): error C2065: 'position': undeclared identifier
+Boid.cpp(84): error C2065: 'maxspeed': undeclared identifier
+Boid.cpp(86): error C2065: 'velocity': undeclared identifier
+Boid.cpp(87): error C2065: 'maxforce': undeclared identifier
+Boid.cpp(92): error C2065: 'velocity': undeclared identifier
+Boid.cpp(93): error C2065: 'followASTAR': undeclared identifier
+Boid.cpp(95): error C2065: 'position': undeclared identifier
+Boid.cpp(96): error C2065: 'position': undeclared identifier
+Boid.cpp(100): error C2065: 'position': undeclared identifier
+Boid.cpp(101): error C2065: 'position': undeclared identifier
+Boid.cpp(111): error C2065: 'position': undeclared identifier
+Boid.cpp(111): error C2065: 'r': undeclared identifier
+Boid.cpp(111): error C2065: 'width': undeclared identifier
+Boid.cpp(112): error C2065: 'position': undeclared identifier
+Boid.cpp(112): error C2065: 'r': undeclared identifier
+Boid.cpp(112): error C2065: 'height': undeclared identifier
+Boid.cpp(113): error C2065: 'position': undeclared identifier
+Boid.cpp(113): error C2065: 'width': undeclared identifier
+Boid.cpp(113): error C2065: 'r': undeclared identifier
+Boid.cpp(114): error C2065: 'position': undeclared identifier
+Boid.cpp(114): error C2065: 'height': undeclared identifier
+Boid.cpp(114): error C2065: 'r': undeclared identifier
+Boid.cpp(117): error C3203: 'Boid': unspecialized class template can't be used as a template argument for template parameter 'T', expected a real type
+Boid.cpp(123): error C2065: 'position': undeclared identifier
+Boid.cpp(125): error C2065: 'position': undeclared identifier
+Boid.cpp(136): error C2065: 'maxspeed': undeclared identifier
+Boid.cpp(137): error C2065: 'velocity': undeclared identifier
+Boid.cpp(138): error C2065: 'maxforce': undeclared identifier
+Boid.cpp(143): error C3203: 'Boid': unspecialized class template can't be used as a template argument for template parameter 'T', expected a real type
+Boid.cpp(149): error C2065: 'position': undeclared identifier
+Boid.cpp(165): error C2065: 'maxspeed': undeclared identifier
+Boid.cpp(166): error C2065: 'velocity': undeclared identifier
+Boid.cpp(167): error C2065: 'maxforce': undeclared identifier
+Boid.cpp(172): error C3203: 'Boid': unspecialized class template can't be used as a template argument for template parameter 'T', expected a real type
+Boid.cpp(177): error C2065: 'position': undeclared identifier
+  Flock.cpp
+d:\programfiles\programming\_git\toolkit\biped\bipedlibrary\biped\bpd\Core\bpdwindef.h(88): warning C4005: 'WIN_DIRECT2D_FULLSCREEN_WINDOWED': macro redefinition
+  D:\ProgramFiles\Programming\_GIT\ToolKit\Biped\BipedLibrary\Biped\bpd/bpdWindow.h(12): note: see previous definition of 'WIN_DIRECT2D_FULLSCREEN_WINDOWED'
+d:\programfiles\programming\_git\toolkit\biped\biped\Blackboard.h(76): warning C4346: 'pt_id': dependent name is not a type
+  d:\programfiles\programming\_git\toolkit\biped\biped\Blackboard.h(76): note: prefix with 'typename' to indicate a type
+d:\programfiles\programming\_git\toolkit\biped\biped\Blackboard.h(76): error C2061: syntax error: identifier 'pt_id'
+d:\programfiles\programming\_git\toolkit\biped\biped\Blackboard.h(77): error C2065: 'T': undeclared identifier
+d:\programfiles\programming\_git\toolkit\biped\biped\Blackboard.h(77): error C2923: 'Blackboard': 'T' is not a valid template type argument for parameter '_Type'
+Flock.cpp(3): error C2988: unrecognizable template declaration/definition
+Flock.cpp(3): error C2059: syntax error: ')'
+Flock.cpp(3): error C2143: syntax error: missing ';' before '{'
+Flock.cpp(3): error C2447: '{': missing function header (old-style formal list?)
+Flock.cpp(5): error C2988: unrecognizable template declaration/definition
+Flock.cpp(5): error C2059: syntax error: ')'
+Flock.cpp(5): error C2143: syntax error: missing ';' before '{'
+Flock.cpp(5): error C2447: '{': missing function header (old-style formal list?)
+Flock.cpp(9): error C2065: 'boids': undeclared identifier
+Flock.cpp(10): error C2065: 'boids': undeclared identifier
+Flock.cpp(15): error C2065: 'boids': undeclared identifier
+Flock.cpp(18): error C2027: use of undefined type 'Boid'
+  d:\programfiles\programming\_git\toolkit\biped\biped\Boid.h(12): note: see declaration of 'Boid'
+Flock.cpp(19): error C2027: use of undefined type 'Boid'
+  d:\programfiles\programming\_git\toolkit\biped\biped\Boid.h(12): note: see declaration of 'Boid'
+Flock.cpp(20): error C2065: 'boids': undeclared identifier
+Flock.cpp(24): error C2065: 'boids': undeclared identifier
+Flock.cpp(25): error C2065: 'boids': undeclared identifier
+Flock.cpp(26): error C2065: 'boids': undeclared identifier
+Flock.cpp(27): error C2065: 'boids': undeclared identifier
+  Main.cpp
+d:\programfiles\programming\_git\toolkit\biped\bipedlibrary\biped\bpd\Core\bpdwindef.h(88): warning C4005: 'WIN_DIRECT2D_FULLSCREEN_WINDOWED': macro redefinition
+  D:\ProgramFiles\Programming\_GIT\ToolKit\Biped\BipedLibrary\Biped\bpd\bpdWindow.h(12): note: see previous definition of 'WIN_DIRECT2D_FULLSCREEN_WINDOWED'
+d:\programfiles\programming\_git\toolkit\biped\biped\Blackboard.h(76): warning C4346: 'pt_id': dependent name is not a type
+  d:\programfiles\programming\_git\toolkit\biped\biped\Blackboard.h(76): note: prefix with 'typename' to indicate a type
+d:\programfiles\programming\_git\toolkit\biped\biped\Blackboard.h(76): error C2061: syntax error: identifier 'pt_id'
+d:\programfiles\programming\_git\toolkit\biped\biped\Blackboard.h(77): error C2065: 'T': undeclared identifier
+d:\programfiles\programming\_git\toolkit\biped\biped\Blackboard.h(77): error C2923: 'Blackboard': 'T' is not a valid template type argument for parameter '_Type'
+Main.cpp(9): error C2065: 'window': undeclared identifier
+Main.cpp(10): error C2065: 'window': undeclared identifier
+Main.cpp(11): error C2065: 'window': undeclared identifier
   MainWindow.cpp
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(59): warning C4005: 'D2DERR_WRONG_STATE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50511): note: see previous definition of 'D2DERR_WRONG_STATE'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(64): warning C4005: 'D2DERR_NOT_INITIALIZED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50520): note: see previous definition of 'D2DERR_NOT_INITIALIZED'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(69): warning C4005: 'D2DERR_UNSUPPORTED_OPERATION': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50529): note: see previous definition of 'D2DERR_UNSUPPORTED_OPERATION'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(74): warning C4005: 'D2DERR_SCANNER_FAILED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50538): note: see previous definition of 'D2DERR_SCANNER_FAILED'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(79): warning C4005: 'D2DERR_SCREEN_ACCESS_DENIED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50547): note: see previous definition of 'D2DERR_SCREEN_ACCESS_DENIED'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(84): warning C4005: 'D2DERR_DISPLAY_STATE_INVALID': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50556): note: see previous definition of 'D2DERR_DISPLAY_STATE_INVALID'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(89): warning C4005: 'D2DERR_ZERO_VECTOR': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50565): note: see previous definition of 'D2DERR_ZERO_VECTOR'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(97): warning C4005: 'D2DERR_INTERNAL_ERROR': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50574): note: see previous definition of 'D2DERR_INTERNAL_ERROR'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(103): warning C4005: 'D2DERR_DISPLAY_FORMAT_NOT_SUPPORTED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50583): note: see previous definition of 'D2DERR_DISPLAY_FORMAT_NOT_SUPPORTED'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(108): warning C4005: 'D2DERR_INVALID_CALL': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50592): note: see previous definition of 'D2DERR_INVALID_CALL'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(113): warning C4005: 'D2DERR_NO_HARDWARE_DEVICE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50601): note: see previous definition of 'D2DERR_NO_HARDWARE_DEVICE'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(119): warning C4005: 'D2DERR_RECREATE_TARGET': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50610): note: see previous definition of 'D2DERR_RECREATE_TARGET'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(124): warning C4005: 'D2DERR_TOO_MANY_SHADER_ELEMENTS': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50619): note: see previous definition of 'D2DERR_TOO_MANY_SHADER_ELEMENTS'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(129): warning C4005: 'D2DERR_SHADER_COMPILE_FAILED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50628): note: see previous definition of 'D2DERR_SHADER_COMPILE_FAILED'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(134): warning C4005: 'D2DERR_MAX_TEXTURE_SIZE_EXCEEDED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50637): note: see previous definition of 'D2DERR_MAX_TEXTURE_SIZE_EXCEEDED'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(139): warning C4005: 'D2DERR_UNSUPPORTED_VERSION': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50646): note: see previous definition of 'D2DERR_UNSUPPORTED_VERSION'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(144): warning C4005: 'D2DERR_BAD_NUMBER': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50655): note: see previous definition of 'D2DERR_BAD_NUMBER'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(149): warning C4005: 'D2DERR_WRONG_FACTORY': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50664): note: see previous definition of 'D2DERR_WRONG_FACTORY'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(154): warning C4005: 'D2DERR_LAYER_ALREADY_IN_USE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50673): note: see previous definition of 'D2DERR_LAYER_ALREADY_IN_USE'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(159): warning C4005: 'D2DERR_POP_CALL_DID_NOT_MATCH_PUSH': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50682): note: see previous definition of 'D2DERR_POP_CALL_DID_NOT_MATCH_PUSH'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(164): warning C4005: 'D2DERR_WRONG_RESOURCE_DOMAIN': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50691): note: see previous definition of 'D2DERR_WRONG_RESOURCE_DOMAIN'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(169): warning C4005: 'D2DERR_PUSH_POP_UNBALANCED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50700): note: see previous definition of 'D2DERR_PUSH_POP_UNBALANCED'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(174): warning C4005: 'D2DERR_RENDER_TARGET_HAS_LAYER_OR_CLIPRECT': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50709): note: see previous definition of 'D2DERR_RENDER_TARGET_HAS_LAYER_OR_CLIPRECT'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(179): warning C4005: 'D2DERR_INCOMPATIBLE_BRUSH_TYPES': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50718): note: see previous definition of 'D2DERR_INCOMPATIBLE_BRUSH_TYPES'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(184): warning C4005: 'D2DERR_WIN32_ERROR': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50727): note: see previous definition of 'D2DERR_WIN32_ERROR'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(189): warning C4005: 'D2DERR_TARGET_NOT_GDI_COMPATIBLE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50736): note: see previous definition of 'D2DERR_TARGET_NOT_GDI_COMPATIBLE'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(194): warning C4005: 'D2DERR_TEXT_EFFECT_IS_WRONG_TYPE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50745): note: see previous definition of 'D2DERR_TEXT_EFFECT_IS_WRONG_TYPE'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(201): warning C4005: 'D2DERR_TEXT_RENDERER_NOT_RELEASED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50754): note: see previous definition of 'D2DERR_TEXT_RENDERER_NOT_RELEASED'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\D2DErr.h(206): warning C4005: 'D2DERR_EXCEEDS_MAX_BITMAP_SIZE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50763): note: see previous definition of 'D2DERR_EXCEEDS_MAX_BITMAP_SIZE'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50092): note: see previous definition of 'DXGI_STATUS_OCCLUDED'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50101): note: see previous definition of 'DXGI_STATUS_CLIPPED'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(14): warning C4005: 'DXGI_STATUS_NO_REDIRECTION': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50110): note: see previous definition of 'DXGI_STATUS_NO_REDIRECTION'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(15): warning C4005: 'DXGI_STATUS_NO_DESKTOP_ACCESS': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50119): note: see previous definition of 'DXGI_STATUS_NO_DESKTOP_ACCESS'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(16): warning C4005: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50128): note: see previous definition of 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(17): warning C4005: 'DXGI_STATUS_MODE_CHANGED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50137): note: see previous definition of 'DXGI_STATUS_MODE_CHANGED'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(18): warning C4005: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50146): note: see previous definition of 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(21): warning C4005: 'DXGI_ERROR_INVALID_CALL': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50161): note: see previous definition of 'DXGI_ERROR_INVALID_CALL'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(22): warning C4005: 'DXGI_ERROR_NOT_FOUND': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50170): note: see previous definition of 'DXGI_ERROR_NOT_FOUND'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(23): warning C4005: 'DXGI_ERROR_MORE_DATA': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50179): note: see previous definition of 'DXGI_ERROR_MORE_DATA'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(24): warning C4005: 'DXGI_ERROR_UNSUPPORTED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50188): note: see previous definition of 'DXGI_ERROR_UNSUPPORTED'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(25): warning C4005: 'DXGI_ERROR_DEVICE_REMOVED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50197): note: see previous definition of 'DXGI_ERROR_DEVICE_REMOVED'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(26): warning C4005: 'DXGI_ERROR_DEVICE_HUNG': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50206): note: see previous definition of 'DXGI_ERROR_DEVICE_HUNG'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(27): warning C4005: 'DXGI_ERROR_DEVICE_RESET': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50216): note: see previous definition of 'DXGI_ERROR_DEVICE_RESET'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(28): warning C4005: 'DXGI_ERROR_WAS_STILL_DRAWING': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50225): note: see previous definition of 'DXGI_ERROR_WAS_STILL_DRAWING'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(29): warning C4005: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50235): note: see previous definition of 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(30): warning C4005: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50244): note: see previous definition of 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(31): warning C4005: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50254): note: see previous definition of 'DXGI_ERROR_DRIVER_INTERNAL_ERROR'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(32): warning C4005: 'DXGI_ERROR_NONEXCLUSIVE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50263): note: see previous definition of 'DXGI_ERROR_NONEXCLUSIVE'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(33): warning C4005: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50272): note: see previous definition of 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(34): warning C4005: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50282): note: see previous definition of 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(35): warning C4005: 'DXGI_ERROR_REMOTE_OUTOFMEMORY': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50291): note: see previous definition of 'DXGI_ERROR_REMOTE_OUTOFMEMORY'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(608): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50445): note: see previous definition of 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50454): note: see previous definition of 'D3D10_ERROR_FILE_NOT_FOUND'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dwrite.h(4962): warning C4005: 'DWRITE_E_FILEFORMAT': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50921): note: see previous definition of 'DWRITE_E_FILEFORMAT'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dwrite.h(4967): warning C4005: 'DWRITE_E_UNEXPECTED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50930): note: see previous definition of 'DWRITE_E_UNEXPECTED'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dwrite.h(4972): warning C4005: 'DWRITE_E_NOFONT': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50939): note: see previous definition of 'DWRITE_E_NOFONT'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dwrite.h(4978): warning C4005: 'DWRITE_E_FILENOTFOUND': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50948): note: see previous definition of 'DWRITE_E_FILENOTFOUND'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dwrite.h(4983): warning C4005: 'DWRITE_E_FILEACCESS': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50957): note: see previous definition of 'DWRITE_E_FILEACCESS'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dwrite.h(4988): warning C4005: 'DWRITE_E_FONTCOLLECTIONOBSOLETE': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50966): note: see previous definition of 'DWRITE_E_FONTCOLLECTIONOBSOLETE'
-C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dwrite.h(4993): warning C4005: 'DWRITE_E_ALREADYREGISTERED': macro redefinition
-  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h(50975): note: see previous definition of 'DWRITE_E_ALREADYREGISTERED'
-l:\_git\toolkit\biped\bipedlibrary\biped\bpd\Core\bpdwindef.h(83): warning C4005: 'WIN_DIRECT2D_FULLSCREEN_WINDOWED': macro redefinition
-  L:\_GIT\ToolKit\Biped\BipedLibrary\Biped\bpd\bpdWindow.h(12): note: see previous definition of 'WIN_DIRECT2D_FULLSCREEN_WINDOWED'
-l:\_git\toolkit\biped\biped\Node.h(12): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-MainWindow.cpp(277): error C2065: 'db_mode4': undeclared identifier
-MainWindow.cpp(304): error C2065: 'db_mode1': undeclared identifier
-MainWindow.cpp(314): error C2065: 'db_mode2': undeclared identifier
-MainWindow.cpp(327): error C2065: 'db_mode2': undeclared identifier
+d:\programfiles\programming\_git\toolkit\biped\bipedlibrary\biped\bpd\Core\bpdwindef.h(88): warning C4005: 'WIN_DIRECT2D_FULLSCREEN_WINDOWED': macro redefinition
+  D:\ProgramFiles\Programming\_GIT\ToolKit\Biped\BipedLibrary\Biped\bpd\bpdWindow.h(12): note: see previous definition of 'WIN_DIRECT2D_FULLSCREEN_WINDOWED'
+d:\programfiles\programming\_git\toolkit\biped\biped\Blackboard.h(76): warning C4346: 'pt_id': dependent name is not a type
+  d:\programfiles\programming\_git\toolkit\biped\biped\Blackboard.h(76): note: prefix with 'typename' to indicate a type
+d:\programfiles\programming\_git\toolkit\biped\biped\Blackboard.h(76): error C2061: syntax error: identifier 'pt_id'
+d:\programfiles\programming\_git\toolkit\biped\biped\Blackboard.h(77): error C2065: 'T': undeclared identifier
+d:\programfiles\programming\_git\toolkit\biped\biped\Blackboard.h(77): error C2923: 'Blackboard': 'T' is not a valid template type argument for parameter '_Type'
+MainWindow.cpp(3): error C2988: unrecognizable template declaration/definition
+MainWindow.cpp(3): error C2059: syntax error: ')'
+MainWindow.cpp(4): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+MainWindow.cpp(4): error C2448: 'm_movingObjectType': function-style initializer appears to be a function definition
+MainWindow.cpp(21): error C2988: unrecognizable template declaration/definition
+MainWindow.cpp(21): error C2059: syntax error: ')'
+MainWindow.cpp(21): error C2143: syntax error: missing ';' before '{'
+MainWindow.cpp(21): error C2447: '{': missing function header (old-style formal list?)
+MainWindow.cpp(25): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(26): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(27): error C2065: 'm_lookatNodeIndex': undeclared identifier
+MainWindow.cpp(29): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(30): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(31): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(32): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(33): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(38): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(44): error C2065: 'm_wallPos': undeclared identifier
+MainWindow.cpp(45): error C2065: 'm_wallPos': undeclared identifier
+MainWindow.cpp(46): error C2065: 'm_wallPos': undeclared identifier
+MainWindow.cpp(55): error C2065: 'm_wallPos': undeclared identifier
+MainWindow.cpp(56): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(57): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(58): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(59): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(60): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(61): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(62): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(66): error C3861: 'linkNode': identifier not found
+MainWindow.cpp(69): error C2065: 'm_wallPos': undeclared identifier
+MainWindow.cpp(73): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(74): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(75): error C2065: 'm_lookatNodeIndex': undeclared identifier
+MainWindow.cpp(76): error C2065: 'm_lookatNodeIndex': undeclared identifier
+MainWindow.cpp(83): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(84): error C2065: 'm_lookatNodeIndex': undeclared identifier
+MainWindow.cpp(85): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(85): error C3861: 'linkNode': identifier not found
+MainWindow.cpp(87): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(89): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(90): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(91): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(96): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(97): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(103): error C2065: 'm_wallPos': undeclared identifier
+MainWindow.cpp(104): error C2065: 'm_wallPos': undeclared identifier
+MainWindow.cpp(112): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(113): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(114): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(115): error C2065: 'm_endNodeIndex': undeclared identifier
+MainWindow.cpp(115): error C3861: 'CalcPath': identifier not found
+MainWindow.cpp(69): warning C4473: 'printf' : not enough arguments passed for format string
+  MainWindow.cpp(69): note: placeholders and their parameters expect 1 variadic arguments, but 0 were provided
+  MainWindow.cpp(69): note: the missing variadic argument 1 is required by format string '%i'
+MainWindow.cpp(87): warning C4473: 'printf' : not enough arguments passed for format string
+  MainWindow.cpp(87): note: placeholders and their parameters expect 1 variadic arguments, but 0 were provided
+  MainWindow.cpp(87): note: the missing variadic argument 1 is required by format string '%i'
+MainWindow.cpp(90): warning C4473: 'printf' : not enough arguments passed for format string
+  MainWindow.cpp(90): note: placeholders and their parameters expect 2 variadic arguments, but 0 were provided
+  MainWindow.cpp(90): note: the missing variadic argument 1 is required by format string '%f'
+MainWindow.cpp(91): warning C4473: 'printf' : not enough arguments passed for format string
+  MainWindow.cpp(91): note: placeholders and their parameters expect 2 variadic arguments, but 0 were provided
+  MainWindow.cpp(91): note: the missing variadic argument 1 is required by format string '%f'
+MainWindow.cpp(129): error C2065: 'm_mousePos': undeclared identifier
+MainWindow.cpp(132): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(133): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(134): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(135): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(136): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(137): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(141): error C3861: 'linkNode': identifier not found
+MainWindow.cpp(145): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(146): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(151): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(152): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(153): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(154): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(155): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(156): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(157): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(161): error C3861: 'linkNode': identifier not found
+MainWindow.cpp(163): error C2065: 'm_wallPos': undeclared identifier
+MainWindow.cpp(164): error C2065: 'm_wallPos': undeclared identifier
+MainWindow.cpp(165): error C2065: 'm_wallPos': undeclared identifier
+MainWindow.cpp(175): error C2065: 'cout': undeclared identifier
+MainWindow.cpp(175): error C2065: 'cin': undeclared identifier
+MainWindow.cpp(177): error C3861: 'OnCommand': identifier not found
+MainWindow.cpp(181): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(182): error C2065: 'm_wallPos': undeclared identifier
+MainWindow.cpp(183): error C2065: 'm_path': undeclared identifier
+MainWindow.cpp(184): error C2065: 'flock': undeclared identifier
+MainWindow.cpp(185): error C2065: 'm_blackboard': undeclared identifier
+MainWindow.cpp(189): error C2065: 'm_wallPos': undeclared identifier
+MainWindow.cpp(193): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(194): error C2065: 'm_path': undeclared identifier
+MainWindow.cpp(195): error C2065: 'flock': undeclared identifier
+MainWindow.cpp(196): error C2065: 'm_blackboard': undeclared identifier
+MainWindow.cpp(201): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(202): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(202): error C2065: 'm_mousePos': undeclared identifier
+MainWindow.cpp(203): error C2065: 'flock': undeclared identifier
+MainWindow.cpp(203): error C2955: 'Boid': use of class template requires template argument list
+  d:\programfiles\programming\_git\toolkit\biped\biped\Boid.h(12): note: see declaration of 'Boid'
+MainWindow.cpp(203): error C2065: 'm_mousePos': undeclared identifier
+MainWindow.cpp(203): error C2065: 'm_path': undeclared identifier
+MainWindow.cpp(204): error C2065: 'm_blackboard': undeclared identifier
+MainWindow.cpp(207): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(207): error C2065: 'flock': undeclared identifier
+MainWindow.cpp(207): error C2955: 'Boid': use of class template requires template argument list
+  d:\programfiles\programming\_git\toolkit\biped\biped\Boid.h(12): note: see declaration of 'Boid'
+MainWindow.cpp(207): error C2065: 'm_mousePos': undeclared identifier
+MainWindow.cpp(210): error C3861: 'PlaceNodeGrid': identifier not found
+MainWindow.cpp(220): error C2065: 'm_nodePos': undeclared identifier
+MainWindow.cpp(220): fatal error C1003: error count exceeds 100; stopping compilation

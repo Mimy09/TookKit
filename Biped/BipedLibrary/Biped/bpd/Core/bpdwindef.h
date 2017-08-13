@@ -23,6 +23,16 @@
 #define BPD_DEFWINPROC DefWindowProc(hwnd, msg, wParam, lParam)
 #define BPD_UPDATE_RECT(_hwnd_,_rect_) InvalidateRect(_hwnd_, _rect_, false);UpdateWindow(_hwnd_);
 
+#define BPD_MSG_EXIT		-1
+#define BPD_MSG_UPDATE		0
+#define BPD_MSG_DISPATCH	1
+
+#define BPD_CC_DEBUG		"debug"
+#define BPD_CC_GAMEMODE		"gamemode"
+#define BPD_CC_TRUE			"1"
+#define BPD_CC_FALSE		"0"
+#define BPD_CC_CHECK(_com1, _com2) !stricmp(_com1, _com2)
+
 BPD_BEGIN
 template<class Interface>
 inline void SafeRelease(Interface **ppInterfaceToRelease) {
@@ -30,7 +40,7 @@ inline void SafeRelease(Interface **ppInterfaceToRelease) {
 		(*ppInterfaceToRelease)->Release();
 		(*ppInterfaceToRelease) = NULL;
 	}
-}
+} enum __BIPED__{ BPD_FAILURE, BPD_SUCCESS };
 BPD_END
 
 #ifndef BPD_DEBUGMODE
@@ -92,8 +102,4 @@ inline bool isPointInRect(D2D1_POINT_2F point, D2D1_RECT_F rect){
 }
 BPD_END
 #endif //  WIN_DIRECT2D_FALLSCREEN_WINDOWED
-
-#define BPD_MSG_EXIT -1
-#define BPD_MSG_UPDATE 0
-#define BPD_MSG_DISPATCH 1
 #endif // !BPD_WINDEF

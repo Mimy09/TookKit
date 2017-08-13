@@ -19,22 +19,22 @@
     <Filter Include="Source Files\Flocking">
       <UniqueIdentifier>{1786ed86-2f91-4cd0-8982-04cdd4096ffa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Blackboard">
+      <UniqueIdentifier>{fc1e25c9-b030-4788-9f9c-5d9b16421ad9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MainWindow.cpp">
-      <Filter>Source Files\A%2a</Filter>
-    </ClCompile>
-    <ClCompile Include="FlockingWindow.cpp">
-      <Filter>Source Files\Flocking</Filter>
     </ClCompile>
     <ClCompile Include="Flock.cpp">
       <Filter>Source Files\Flocking</Filter>
     </ClCompile>
     <ClCompile Include="Boid.cpp">
       <Filter>Source Files\Flocking</Filter>
+    </ClCompile>
+    <ClCompile Include="MainWindow.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -44,17 +44,17 @@
     <ClInclude Include="Node.h">
       <Filter>Source Files\A%2a</Filter>
     </ClInclude>
-    <ClInclude Include="MainWindow.h">
-      <Filter>Source Files\A%2a</Filter>
-    </ClInclude>
-    <ClInclude Include="FlockingWindow.h">
-      <Filter>Source Files\Flocking</Filter>
-    </ClInclude>
     <ClInclude Include="Flock.h">
       <Filter>Source Files\Flocking</Filter>
     </ClInclude>
     <ClInclude Include="Boid.h">
       <Filter>Source Files\Flocking</Filter>
+    </ClInclude>
+    <ClInclude Include="MainWindow.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Blackboard.h">
+      <Filter>Source Files\Blackboard</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

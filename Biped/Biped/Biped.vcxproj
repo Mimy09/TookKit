@@ -152,14 +152,13 @@
   <ItemGroup>
     <ClCompile Include="Boid.cpp" />
     <ClCompile Include="Flock.cpp" />
-    <ClCompile Include="FlockingWindow.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Blackboard.h" />
     <ClInclude Include="Boid.h" />
     <ClInclude Include="Flock.h" />
-    <ClInclude Include="FlockingWindow.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Wall.h" />

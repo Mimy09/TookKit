@@ -26,7 +26,8 @@ public:
 	int screenWidth = 0;
 	//Screen Height
 	int screenHeight = 0;
-
+	// Stores the commands
+	char *command_1, *command_2;
 	//##################################//
 	// CONSTRUCTOR
 	//##################################//
@@ -91,6 +92,11 @@ public:
 	/* ---- MessageSend ----
 	Send a message*/
 	void MessageSend(bpd::String winClass, bpd::String winName, UINT msg, ULONG dataMsg);
+
+	/* ---- OnCommand ----
+	Called when receiving a command*/
+	virtual void OnCommand(char* command_1, char* command_2){}
+
 private:
 	//##################################//
 	// PRIVATE FUNCTIONS
@@ -120,6 +126,8 @@ private:
 	/* ---- OnResize ---- */
 	void OnResize( UINT width, UINT height );
 private:
+	
+
 	//##################################//
 	// PRIVATE DIRECT2D VARIABLES
 	//##################################//
@@ -127,6 +135,7 @@ private:
 	ID2D1HwndRenderTarget* m_pRenderTarget;
 	IDWriteFactory* m_pWriteFactory;
 protected:
+	// Default text format
 	IDWriteTextFormat* m_pDebugTextFormat;
 	//##################################//
 	// POLYMOPHIC FUNCTIONS
@@ -222,8 +231,6 @@ private:
 	HWND m_hwnd;
 	WNDCLASSEX m_wc;
 	COPYDATASTRUCT pcds;
-
-	//tk::IO m_versionFile;
 
 	double prevTime = 0;
 };

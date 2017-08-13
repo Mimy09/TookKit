@@ -16,6 +16,7 @@ MainWindow::MainWindow()
 	db_mode4 = db_mode5 = false;
 #endif
 	m_lookatNodeIndex = -1;
+	for(int i = 0; i < 100;i++){ flock.addBoid(Boid(500, 300)); }
 }
 MainWindow::~MainWindow(){}
 
@@ -124,10 +125,6 @@ void MainWindow::OnMouseUp(int x, int y, UINT param){
 		m_movingObjectType = 0;
 	}
 }
-void MainWindow::OnKeyUp(UINT key){
-	if(key == 17){ placingWall = false; } else if(key == 16){ deletingObjects = false; }
-}
-
 void MainWindow::OnMouseMove(int x, int y, UINT param){
 	m_mousePos.x = x; m_mousePos.y = y;
 	if(moveingObject && m_movingObjectIndex != -1){
@@ -169,11 +166,23 @@ void MainWindow::OnMouseMove(int x, int y, UINT param){
 		}
 	}
 }
+void MainWindow::OnKeyUp(UINT key){
+	if(key == 17){ placingWall = false; } else if(key == 16){ deletingObjects = false; }
+}
 void MainWindow::OnKeyDown(UINT key){
+	if(key == 192){
+		char command_1[32] = "", command_2[16] = "";
+		std::cout << " >> "; std::cin >> command_1 >> command_2;
+		printf(" >> Command: <%s> = <%s>\n", command_1, command_2);
+		OnCommand(command_1, command_2);
+	}
 	if(key == 17){ placingWall = true; } else if(key == 16){ deletingObjects = true; }
 	if(key == 'Q'){
 		if(!m_nodePos.empty())m_nodePos.clear();
 		if(!m_wallPos.empty())m_wallPos.clear();
+		if(!m_path.empty())m_path.clear();
+		flock.deleteBoid2();
+		//m_blackboard.clear();
 		printf("\n---- Deleting All Objects  ----\n\n");
 	}
 	if(key == 'W'){
@@ -182,7 +191,23 @@ void MainWindow::OnKeyDown(UINT key){
 	}
 	if(key == 'E'){
 		if(!m_nodePos.empty())m_nodePos.clear();
+		if(!m_path.empty())m_path.clear();
+		flock.deleteBoid2();
+		//m_blackboard.clear();
 		printf("\n---- Deleting All Nodes  ----\n\n");
+	}
+	if(key == 'R'){
+		int i = 0;
+		for(; i < m_nodePos.size(); i++) {
+			if(m_nodePos[i].GetPos().distance(bpd::Point(m_mousePos.x, m_mousePos.y)) < 10) {
+				flock.addBoid2(Boid(m_mousePos.x, m_mousePos.y), m_path);
+				//m_blackboard.post(i);
+				break;
+			}
+		} if (i == m_nodePos.size()) flock.addBoid(Boid(m_mousePos.x, m_mousePos.y));
+	}
+	if(key == 'G') {
+		PlaceNodeGrid();
 	}
 #ifdef BPD_DEBUGMODE
 	if(key == '1'){ db_mode1 = !db_mode1; }
@@ -198,6 +223,16 @@ void MainWindow::OnKeyDown(UINT key){
 				m_nodePos[i].type2 = AINode::END;
 				break;
 			}
+		}
+	}
+}
+
+void MainWindow::OnCommand(char* command_1, char* command_2){
+	if(BPD_CC_CHECK(command_1, BPD_CC_DEBUG)){
+		if(BPD_CC_CHECK(command_2, BPD_CC_TRUE)){
+			// Turn debug mode on
+		} else if(BPD_CC_CHECK(command_2, BPD_CC_FALSE)){
+			// Turn debug mode off
 		}
 	}
 }
@@ -222,6 +257,7 @@ void MainWindow::OnDiscardDeviceResources(){
 	bpd::SafeRelease(&m_NodeBrush);
 	bpd::SafeRelease(&m_BlueBrush);
 	bpd::SafeRelease(&m_PurpleBrush);
+	//m_blackboard.Release();
 	/************************************************************************************************************/
 	/************************************************************************************************************/
 }
@@ -255,8 +291,7 @@ bpd::LinkedList< AINode* > MainWindow::reconstructPath(AINode* cur) {
 		reconstructPath(cur->GetParent());
 	} return m_path;
 }
-
-bpd::LinkedList<AINode*> MainWindow::CalcPath(int Start, int End) {
+bpd::LinkedList< AINode* > MainWindow::CalcPath(int Start, int End) {
 	StartNode = &m_nodePos.find(Start);
 	EndNode = &m_nodePos.find(End);
 
@@ -288,7 +323,9 @@ bpd::LinkedList<AINode*> MainWindow::CalcPath(int Start, int End) {
 		(*CurrentNode).type = AINode::CLOSED;
 
 		if (CurrentNode == EndNode) {
-			return reconstructPath(CurrentNode);
+			reconstructPath(CurrentNode);
+			m_path.push_back(StartNode);
+			return bpd::LinkedList<AINode*>();
 		}
 
 		for (int i = 0; i < (*CurrentNode).m_edges.size(); i++) {
@@ -346,7 +383,6 @@ void MainWindow::linkNode(int index) {
 	}
 }
 
-
 void MainWindow::OnPaint(ID2D1HwndRenderTarget* rt){
 	m_timer.calcFPS();
 	rt->SetTransform(D2D1::Matrix3x2F::Identity());
@@ -360,13 +396,14 @@ void MainWindow::OnPaint(ID2D1HwndRenderTarget* rt){
 	/************************************************************************************************************/
 	/************************************************************************************************************/
 	/** Draw Walls */
+	flock.run(rt, m_RedBrush, m_GreenBrush, width, height);
 	if(!m_wallPos.empty()){
 		for(int i = 0; i < m_wallPos.size(); i++){
 			D2D1_RECT_F wall = D2D1::Rect(
 				m_wallPos[i].pos.x - 40.f, m_wallPos[i].pos.y - 40.f,
 				m_wallPos[i].pos.x + 40.f, m_wallPos[i].pos.y + 40.f
 			); rt->FillRectangle(&wall, m_WhiteBrush);
-			/** Draw Wall Colliders */
+			/** Draw Wall Colliers */
 			if(db_mode4){
 				rt->DrawLine(
 					D2D1::Point2F(m_wallPos[i].seg1.x, m_wallPos[i].seg1.y),
@@ -413,6 +450,7 @@ void MainWindow::OnPaint(ID2D1HwndRenderTarget* rt){
 						);
 					}
 				}
+				/** Color Nodes */
 				if (m_endNodeIndex != i) {
 					switch (m_nodePos[i].type) {
 					case AINode::PATH:
@@ -430,7 +468,7 @@ void MainWindow::OnPaint(ID2D1HwndRenderTarget* rt){
 
 
 			}
-			/** Draw Edegs */
+			/** Draw edges */
 			if (db_mode2) {
 				 if (m_lookatNodeIndex == -1) {
 					for (int j = 0; j < m_nodePos[i].m_edges.size(); j++) {
@@ -483,7 +521,7 @@ void MainWindow::OnPaint(ID2D1HwndRenderTarget* rt){
 	}
 	{
 		/** Draw Keys */
-		const WCHAR m_GameText[] = L"---- A* Testing Area ----\n[Q] =\t\tClear All\n[W] =\t\tClear Walls\n[E] =\t\tClear Nodes\n[LShift] =\tDelete Mode\n[LCtrl] =\tWall Mode\n[LClick] =\tPlace Object\n[RClick] =\tMove Object\n[space] =\tSelect End Node";
+		const WCHAR m_GameText[] = L"---- A* Testing Area ----\n[Q] =\t\tClear All\n[W] =\t\tClear Walls\n[E] =\t\tClear Nodes\n[R] =\t\tPlace boid / Place Agent if hovering over calculated path node\n[G] =\t\tGenerate node grid\n[LShift] =\tDelete Mode\n[LCtrl] =\tWall Mode\n[LClick] =\tPlace Object\n[RClick] =\tMove Object\n[MClick] =\tCalc Path\n[Space] =\tSelect End Node\n\nBoids will be greatly influenced by the agents";
 		rt->DrawText(
 			m_GameText,
 			BPD_SIZEOF(m_GameText),
@@ -492,17 +530,16 @@ void MainWindow::OnPaint(ID2D1HwndRenderTarget* rt){
 			m_WhiteBrush
 		);
 		/** Draw Debug Keys */
-		const WCHAR m_debugText[] = L"---- Debug Binds ----\n[1] =\t\tShow Nodes\n[2] =\t\tShow Node Connectors";
+		const WCHAR m_debugText[] = L"---- Debug Binds ----\n[1] =\t\tShow Nodes\n[2] =\t\tShow NavMesh\n[3] =\t\tShow Node Parents\n[4] =\t\tShow wall colliers";
 		rt->DrawText(
 			m_debugText,
 			BPD_SIZEOF(m_debugText),
 			m_pDebugTextFormat,
-			D2D1::RectF(0,height, 400, height - 50),
+			D2D1::RectF(0,height, 400, height - 75),
 			m_WhiteBrush
 		);
 	}
 }
-
 void MainWindow::DrawGrid(ID2D1HwndRenderTarget* rt, D2D1_SIZE_F rtSize, int width, int height){
 	for(int x = 0; x < width; x += 10){
 		if(x % 40 == 0){
@@ -532,6 +569,26 @@ void MainWindow::DrawGrid(ID2D1HwndRenderTarget* rt, D2D1_SIZE_F rtSize, int wid
 				D2D1::Point2F(rtSize.width, static_cast<FLOAT>(y)),
 				m_WhiteBrush, 0.1f
 			);
+		}
+	}
+	
+}
+
+void MainWindow::PlaceNodeGrid() {
+	for(int x = 2; x < ScreenRectWidth() - 2; x += 2) {
+		for(int y = 2; y < ScreenRectHeight() - 2; y += 2) {
+			if(x % 102 == 0 && y % 102 == 0) {
+				int i = 0;
+				for(; i < m_wallPos.size(); i++) {
+					if(m_wallPos[i].pos.distance(bpd::Point(x, y)) < 42) {
+						break;
+					}
+				}
+				if(i == m_wallPos.size()) {
+					m_nodePos.push_back(AINode{ bpd::Point(x, y) });
+					linkNode(m_nodePos.size() - 1);
+				}
+			}
 		}
 	}
 }
