@@ -1,0 +1,10 @@
+﻿  Main.cpp
+l:\_gitlab\bipedlib\biped\bipedlibrary\biped\src\bpd-math.h(40): error C2146: syntax error: missing '>' before identifier '_Val'
+  l:\_gitlab\bipedlib\biped\bipedlibrary\biped\src\bpd-math.h(51): note: see reference to class template instantiation 'Maths::Vector<_Type>' being compiled
+l:\_gitlab\bipedlib\biped\bipedlibrary\biped\src\bpd-math.h(41): error C2146: syntax error: missing '>' before identifier '_Val'
+l:\_gitlab\bipedlib\biped\bipedlibrary\biped\src\bpd-math.h(42): error C2146: syntax error: missing '>' before identifier '_Val'
+l:\_gitlab\bipedlib\biped\bipedlibrary\biped\src\bpd-math.h(43): error C2146: syntax error: missing '>' before identifier '_Val'
+l:\_gitlab\bipedlib\biped\bipedlibrary\biped\src\bpd-math.h(40): error C2912: explicit specialization 'int Maths::Vector<int>::operator ()(void)' is not a specialization of a function template
+l:\_gitlab\bipedlib\biped\bipedlibrary\biped\src\bpd-math.h(41): error C2912: explicit specialization 'int Maths::Vector<int>::operator ()(void)' is not a specialization of a function template
+l:\_gitlab\bipedlib\biped\bipedlibrary\biped\src\bpd-math.h(42): error C2912: explicit specialization 'int Maths::Vector<int>::operator ()(void)' is not a specialization of a function template
+l:\_gitlab\bipedlib\biped\bipedlibrary\biped\src\bpd-math.h(43): error C2912: explicit specialization 'int Maths::Vector<int>::operator ()(void)' is not a specialization of a function template

@@ -1,0 +1,17 @@
+﻿  bpd-window.cpp
+Biped\src\bpd-window.cpp(124): warning C4838: conversion from 'WPARAM' to 'int' requires a narrowing conversion
+Biped\src\bpd-window.cpp(140): warning C4838: conversion from 'WPARAM' to 'int' requires a narrowing conversion
+Biped\src\bpd-window.cpp(152): warning C4838: conversion from 'WPARAM' to 'int' requires a narrowing conversion
+Biped\src\bpd-window.cpp(164): warning C4838: conversion from 'WPARAM' to 'int' requires a narrowing conversion
+Biped\src\bpd-window.cpp(174): warning C4838: conversion from 'WPARAM' to 'int' requires a narrowing conversion
+Biped\src\bpd-window.cpp(215): warning C4302: 'type cast': truncation from 'LPSTR' to 'WORD'
+Biped\src\bpd-window.cpp(219): warning C4302: 'type cast': truncation from 'LPSTR' to 'WORD'
+Biped\src\bpd-window.cpp(194): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(240): note: see declaration of 'freopen'
+Biped\src\bpd-window.cpp(195): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(240): note: see declaration of 'freopen'
+Biped\src\bpd-window.cpp(196): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(240): note: see declaration of 'freopen'
+Biped\src\bpd-window.cpp(203): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'bpd::containers::const_string'
+Biped\src\bpd-window.cpp(204): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'bpd::containers::const_string'
+  BipedLibrary.vcxproj -> L:\_GITLAB\BipedLib\Biped\BipedLibrary_bin\BipedLibrary_Win32.lib

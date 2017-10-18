@@ -1,122 +1,66 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Biped">
-      <UniqueIdentifier>{b77de81d-0951-48a2-abfb-524e4601f7f8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Biped\Standard">
-      <UniqueIdentifier>{252d44e3-05c1-493a-94f3-bab5322f96ee}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Biped\Core">
-      <UniqueIdentifier>{b9930b5f-166b-4756-9510-5bffc7e4b4db}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Biped\Windows">
-      <UniqueIdentifier>{8788352b-9bdf-45b4-b128-fd8549e573e6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Biped\Windows\Headers">
-      <UniqueIdentifier>{ce79f664-fb20-4a62-b3ce-12ebec421d51}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Biped\Windows\Src">
-      <UniqueIdentifier>{74a255ad-6c2a-420f-8998-30e118b4597b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Biped\Standard\Headers">
-      <UniqueIdentifier>{197985c9-2f5e-49ad-8b54-b4e28df630e5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Biped\Standard\Src">
-      <UniqueIdentifier>{95b14e3c-bcde-46d4-944e-d8d59c41796a}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Biped\bpd\HashTable.h">
-      <Filter>Biped\Standard\Headers</Filter>
+    <ClInclude Include="Biped\bpd-def.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Biped\bpd\Core\bpdlib.h">
-      <Filter>Biped\Core</Filter>
+    <ClInclude Include="Biped\bpd-macro.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Biped\bpd\Core\bpdwindef.h">
-      <Filter>Biped\Core</Filter>
+    <ClInclude Include="Biped\bpd.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Biped\bpd\Core\bpddef.h">
-      <Filter>Biped\Core</Filter>
+    <ClInclude Include="Biped\src\bpd-exception.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Biped\bpd\IO.h">
-      <Filter>Biped\Standard\Headers</Filter>
+    <ClInclude Include="Biped\src\bpd-IList.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Biped\bpd\LinkedList.h">
-      <Filter>Biped\Standard\Headers</Filter>
+    <ClInclude Include="Biped\src\bpd-timer.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Biped\bpd\ObjectPool.h">
-      <Filter>Biped\Standard\Headers</Filter>
+    <ClInclude Include="Biped\src\bpd-window.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Biped\bpd\String.h">
-      <Filter>Biped\Standard\Headers</Filter>
+    <ClInclude Include="Biped\src\bpd-brush.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Biped\bpd\Timer.h">
-      <Filter>Biped\Standard\Headers</Filter>
+    <ClInclude Include="Biped\src\bpd-events.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Biped\bpd\Tree.h">
-      <Filter>Biped\Standard\Headers</Filter>
+    <ClInclude Include="Biped\src\bpd-application.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Biped\bpd\Exception.h">
-      <Filter>Biped\Standard\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Biped\bpd\bpdWindow.h">
-      <Filter>Biped\Windows\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Biped\bpd\bpdWinObjects.h">
-      <Filter>Biped\Windows\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Biped\bpd\IList.h">
-      <Filter>Biped\Standard\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Biped\bpd\dxRenderModel.h" />
-    <ClInclude Include="Biped\bpd\Maths.h">
-      <Filter>Biped\Standard\Headers</Filter>
+    <ClInclude Include="Biped\src\bpd-math.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Exception.cpp">
-      <Filter>Biped\Standard\Src</Filter>
+    <ClCompile Include="Biped\src\bpd-exception.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HashTable.cpp">
-      <Filter>Biped\Standard\Src</Filter>
+    <ClCompile Include="Biped\src\bpd-timer.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="String.cpp">
-      <Filter>Biped\Standard\Src</Filter>
+    <ClCompile Include="Biped\src\bpd-window.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Timer.cpp">
-      <Filter>Biped\Standard\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="LinkedList.cpp">
-      <Filter>Biped\Standard\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectPool.cpp">
-      <Filter>Biped\Standard\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="Tree.cpp">
-      <Filter>Biped\Standard\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="IO.cpp">
-      <Filter>Biped\Standard\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="bpdWindow.cpp">
-      <Filter>Biped\Windows\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="bpdWinObject.cpp">
-      <Filter>Biped\Windows\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="IList.cpp">
-      <Filter>Biped\Standard\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="Maths.cpp">
-      <Filter>Biped\Standard\Src</Filter>
+    <ClCompile Include="Biped\src\bpd-brush.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

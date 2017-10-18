@@ -1,15 +1,26 @@
-#include <iostream>
-#include "MainWindow.h"
+#include "Main.h"
+#include "Biped/src/bpd-math.h"
 
-int main(){
-	try {
-		HeapSetInformation(NULL, HeapEnableTerminationOnCorruption, NULL, 0);
-		if (SUCCEEDED(CoInitialize(NULL))) { {
-			MainWindow window;
-			window.Create("AStar_f378gf", "A* Demo", RECT{ 0, 0, 1000, 600 }, true);
-			window.Show();
-			window.RunWindow();
-		} CoUninitialize(); }
-	} catch (bpd::Exception e) { e.msgWhat(); }
+int main() {
+	FOOBAR* window = new FOOBAR();
+
+	bpd::Window win;
+	bpd::WindowInfo info;
+	info.ClassName = "TEST_CLASS_NAME";
+	info.TitleName = "Title";
+	info.FullScreen = false;
+
+	Maths::Vector<int> test = { {0, 1, 2, 3} };
+	test.operator() <Maths::_X_<int>> ();
+
+
+	if(bpd::WindowCreate(win, info) == BPD_RESULT::SUCCESS) {
+		bpd::bind(win);
+		bpd::linkClass(window);
+
+		bpd::WindowShow(win);
+		bpd::WindowRun(win);
+	}
+
 	return 0;
 }

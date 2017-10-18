@@ -1,0 +1,18 @@
+﻿  bpd-window.cpp
+l:\_git\biped\bipedlibrary\biped\src\bpd-window.cpp(11): warning C4101: 'ps': unreferenced local variable
+l:\_git\biped\bipedlibrary\biped\src\bpd-window.cpp(43): warning C4302: 'type cast': truncation from 'LPSTR' to 'WORD'
+l:\_git\biped\bipedlibrary\biped\src\bpd-window.cpp(47): warning C4302: 'type cast': truncation from 'LPSTR' to 'WORD'
+l:\_git\biped\bipedlibrary\biped\src\bpd-window.cpp(79): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(240): note: see declaration of 'freopen'
+l:\_git\biped\bipedlibrary\biped\src\bpd-window.cpp(80): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(240): note: see declaration of 'freopen'
+l:\_git\biped\bipedlibrary\biped\src\bpd-window.cpp(81): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(240): note: see declaration of 'freopen'
+l:\_git\biped\bipedlibrary\biped\src\bpd-window.cpp(88): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'bpd::const_string'
+l:\_git\biped\bipedlibrary\biped\src\bpd-window.cpp(89): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'bpd::const_string'
+l:\_git\biped\bipedlibrary\biped\src\bpd-window.cpp(128): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  bpd-timer.cpp
+  bpd-exception.cpp
+  Generating Code...
+l:\_git\biped\bipedlibrary\biped\src\bpd-window.cpp(22): warning C4700: uninitialized local variable 'hdc' used
+  BipedLibrary.vcxproj -> L:\_GIT\Biped\BipedLibrary_bin\BipedLibrary_x64_DEBUG.lib
